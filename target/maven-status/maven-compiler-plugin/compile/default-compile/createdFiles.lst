@@ -1,0 +1,6 @@
+com\example\peche\Controllers\IndexController.class
+com\example\peche\Repositories\BateauRepository.class
+com\example\peche\Models\Bateau$BateauBuilder.class
+com\example\peche\Models\Bateau.class
+com\example\peche\Services\BateauService.class
+com\example\peche\PecheApplication.class
