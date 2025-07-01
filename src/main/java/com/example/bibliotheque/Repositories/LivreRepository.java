@@ -12,8 +12,6 @@ import java.util.List;
 public interface LivreRepository extends JpaRepository<Livre, Integer> {
     List<Livre> findByNomContainingIgnoreCase(String nom);
 
-    List<Livre> findByCategorieId(Integer categorieId);
-
     List<Livre> findByTypeLivreId(Integer typeLivreId);
 
     @Query("SELECT l FROM Livre l WHERE l.nom LIKE %:searchTerm% OR l.description LIKE %:searchTerm%")

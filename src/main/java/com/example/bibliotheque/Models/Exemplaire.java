@@ -26,8 +26,5 @@ public class Exemplaire {
     private LocalDate dateAjout;
 
     @OneToMany(mappedBy = "exemplaire")
-    private List<MouvementExemplaire> mouvements;
-
-    @OneToMany(mappedBy = "exemplaire")
     private List<Pret> prets;
 }

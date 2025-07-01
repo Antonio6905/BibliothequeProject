@@ -27,6 +27,9 @@ public class Utilisateur {
     @Column(nullable = false, length = 50)
     private String prenom;
 
+    @Column( name="",nullable = false, length = 255)
+    private String password;
+
     @Column(name = "date_naissance")
     private LocalDate dateNaissance;
 

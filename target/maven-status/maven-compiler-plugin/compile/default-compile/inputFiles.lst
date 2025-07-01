@@ -1,9 +1,8 @@
-C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\IndexController.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\AuthController.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Categorie.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\ConfigurationPret.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Exemplaire.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Livre.java
-C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\MouvementExemplaire.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Pret.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Prolongement.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Reservation.java
@@ -17,14 +16,12 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\TypeAdherent.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\TypeLivre.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\TypeLivreAutorise.java
-C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\TypeMouvement.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Utilisateur.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\PecheApplication.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\CategorieRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\ConfigurationPretRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\ExemplaireRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\LivreRepository.java
-C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\MouvementExemplaireRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\PretRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\ProlongementRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\ReservationRepository.java
@@ -38,5 +35,4 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\TypeAdherentRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\TypeLivreAutoriseRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\TypeLivreRepository.java
-C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\TypeMouvementRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\UtilisateurRepository.java

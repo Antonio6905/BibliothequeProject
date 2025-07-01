@@ -11,7 +11,6 @@ CREATE DATABASE bibliotheque
 -- Creation des tables
 
 
-
 -- Table Type Adherent
 CREATE TABLE Type_Adherent (
     Id SERIAL PRIMARY KEY,
@@ -24,6 +23,7 @@ CREATE TABLE Utilisateur (
     Id_type_adherent INTEGER REFERENCES Type_Adherent(Id),
     Nom VARCHAR(50) NOT NULL,
     Prenom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     Date_naissance DATE
 );
 
@@ -32,7 +32,8 @@ CREATE TABLE Configuration_Pret (
     Id SERIAL PRIMARY KEY,
     Id_type_adherent INTEGER REFERENCES Type_Adherent(Id),
     Nombre_livre_quota INTEGER NOT NULL,
-    Duree_pret INTEGER NOT NULL
+    Duree_pret INTEGER NOT NULL,
+    duree_prolongement INTEGER NOT NULL
 );
 
 -- Table Type Livre
@@ -51,10 +52,16 @@ CREATE TABLE Categorie (
 CREATE TABLE Livre (
     Id SERIAL PRIMARY KEY,
     Id_type_livre INTEGER REFERENCES Type_Livre(Id),
-    Id_Categorie INTEGER REFERENCES Categorie(Id),
     Nom VARCHAR(100) NOT NULL,
     Description TEXT,
     Date_edition DATE
+);
+
+CREATE TABLE categorie_livre(
+    id SERIAL PRIMARY KEY,
+    id_livre INTEGER REFERENCES livre(Id),
+    id_categorie INTEGER REFERENCES categorie(Id),
+    UNIQUE (id_livre, id_categorie)
 );
 
 -- Table Exemplaire
@@ -62,21 +69,6 @@ CREATE TABLE Exemplaire (
     Id SERIAL PRIMARY KEY,
     Id_Livre INTEGER REFERENCES Livre(Id),
     Date_ajout DATE DEFAULT CURRENT_DATE
-);
-
-CREATE TABLE type_mouvement(
-    id SERIAL PRIMARY KEY,
-    libelle VARCHAR(50) NOT NULL
-);
-
-INSERT INTO type_mouvement (libelle) VALUES ('entree'),('sortie');
-
--- Table Mouvement Exemplaire
-CREATE TABLE Mouvement_Exemplaire (
-    Id SERIAL PRIMARY KEY,
-    Id_Exemplaire INTEGER REFERENCES Exemplaire(Id),
-    id_type INTEGER REFERENCES type_mouvement(Id),
-    Date_mouvement TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Table Statut (pour les prêts, reservations et prolongements)
