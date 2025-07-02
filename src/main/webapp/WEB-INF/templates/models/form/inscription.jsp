@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Connexion - Bibliothèque</title>
+    <title>Inscription - Bibliothèque</title>
     <style>
         * {
             margin: 0;
@@ -47,7 +48,8 @@
         }
 
         input[type="text"],
-        input[type="password"] {
+        input[type="password"],
+        select {
             width: 100%;
             padding: 0.75rem;
             border: 1px solid #ccc;
@@ -57,7 +59,8 @@
         }
 
         input[type="text"]:focus,
-        input[type="password"]:focus {
+        input[type="password"]:focus,
+        select:focus {
             outline: none;
             border-color: #007bff;
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
@@ -113,24 +116,37 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>Connexion à la Bibliothèque</h2>
-        <form action="/login" method="post">
+        <h2>Inscription à la Bibliothèque</h2>
+        <form action="/inscription" method="post">
             <div class="form-group">
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="username" required/>
+                <label for="type">Type d'adhérent</label>
+                <select name="typeAdherentId" id="type" required>
+                    <option value="" disabled selected>Sélectionnez un type</option>
+                    <c:forEach var="type" items="${typeAdherents}">
+                        <option value="${type.id}"><c:out value="${type.nomType}"/></option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" required/>
+            </div>
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom" required/>
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" required/>
             </div>
             <div>
-                <button type="submit">Se connecter</button>
+                <button type="submit">S'inscrire</button>
             </div>
-            <a href="/inscription" class="inscription-link">Pas encore abonné ? Inscrivez-vous ici !</a>
+            <a href="/login" class="inscription-link">Déjà inscrit ? Connectez-vous ici !</a>
         </form>
-        <% if (request.getParameter("error") != null) { %>
-            <p class="error-message">Nom d'utilisateur ou mot de passe incorrect.</p>
-        <% } %>
+        <c:if test="${not empty error}">
+            <p class="error-message"><c:out value="${error}"/></p>
+        </c:if>
     </div>
 </body>
 </html>
