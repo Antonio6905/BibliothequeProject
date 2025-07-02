@@ -22,10 +22,6 @@ public class LivreService {
         return livreRepository.findAll();
     }
 
-    public List<Livre> findifDispo(Integer id) {
-        return livreRepository.findifDispo(id);
-    }
-
     /**
      * Récupérer un livre par son ID
      * 

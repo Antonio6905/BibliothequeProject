@@ -11,6 +11,7 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Reservation.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Retour.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Sanction.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\SanctionEnCours.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\SanctionTypeAdherent.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Statut.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\SuiviStatutProlongement.java
@@ -37,6 +38,9 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\TypeLivreAutoriseRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\TypeLivreRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\UtilisateurRepository.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\ConfigurationPretService.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\ExemplaireService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\LivreService.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\PretService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\TypeAdherentService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\UtilisateurService.java

@@ -164,7 +164,7 @@ CREATE TABLE Suivi_Statut_Reservation (
 
 -- Insertion des types d'adherents
 INSERT INTO Type_Adherent (Nom_type) VALUES 
-('elève'), ('Professeur'), ('Admin'), ('Adherent simple');
+('elève'), ('Professeur'), ('Admin');
 
 -- Insertion des statuts possibles
 INSERT INTO Statut (Libelle) VALUES 
@@ -174,6 +174,8 @@ INSERT INTO Statut (Libelle) VALUES
 -- Insertion des types de livres
 INSERT INTO Type_Livre (Nom_type) VALUES 
 ('Simple'), ('Reserve'), ('Rare');
+
+INSERT INTO type_livre_autorise(id_type_adherent,id_type_livre) VALUES(1,1),(1,2),(2,1),(2,2),(2,3);
 
 
 

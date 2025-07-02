@@ -5,6 +5,7 @@ import com.example.bibliotheque.Repositories.TypeAdherentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.StackWalker.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,6 +42,10 @@ public class TypeAdherentService {
      */
     public TypeAdherent findByNomType(String nomType) {
         return typeAdherentRepository.findByNomType(nomType);
+    }
+
+    public TypeAdherent findIfCanBorrow(Integer id,Integer typeLivre) {
+        return typeAdherentRepository.findIfCanBorrow(id,typeLivre).orElse(null);
     }
 
     /**
