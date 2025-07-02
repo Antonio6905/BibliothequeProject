@@ -14,6 +14,9 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Intege
     // Trouver un utilisateur par son nom (pour l'authentification)
     Optional<Utilisateur> findByNom(String nom);
 
+    // Trouver un utilisateur par nom et mot de passe
+    Optional<Utilisateur> findByNomAndPassword(String nom, String password);
+
     // Vérifier si un utilisateur existe par son nom
     boolean existsByNom(String nom);
 
