@@ -196,6 +196,45 @@ INSERT INTO Sanction_Type_Adherent (Id_type_adherent, Duree_sanction, Descriptio
 (2, 3, 'Retard pour professeur'),
 (4, 10, 'Retard pour adherent simple');
 
+-- Insertion de livres
+INSERT INTO Livre (Id_type_livre, Nom, Description, Date_edition) VALUES 
+(1, 'Le Petit Prince', 'Un classique de la litterature française', '1943-04-06'),
+(1, '1984', 'Roman dystopique de George Orwell', '1949-06-08'),
+(2, 'Manuel de Physique Quantique', 'Ouvrage reserve aux etudiants avances', '2015-03-15'),
+(3, 'Première edition des Fleurs du Mal', 'edition originale de 1857', '1857-06-25'),
+(1, 'L''etranger', 'Roman d''Albert Camus', '1942-05-19'),
+(1, 'Harry Potter à l''ecole des sorciers', 'Premier tome de la saga Harry Potter', '1997-06-26'),
+(2, 'Algorithmes avances', 'Livre reserve aux chercheurs en informatique', '2018-11-02'),
+(1, 'Le Seigneur des Anneaux', 'Trilogie fantastique', '1954-07-29'),
+(3, 'Bible de Gutenberg', 'Reproduction fidèle de l''original', '1455-01-01'),
+(1, 'Voyage au centre de la Terre', 'Roman de Jules Verne', '1864-11-25');
+
+-- Insertion des relations livre-categorie
+INSERT INTO categorie_livre (id_livre, id_categorie) VALUES
+(1, 1), (1, 3), -- Le Petit Prince (Litterature, Jeunesse)
+(2, 1), (2, 5), -- 1984 (Litterature, Histoire-Geographie)
+(3, 2), (3, 7), -- Manuel de Physique Quantique (Sciences, Informatique)
+(4, 1), (4, 4), -- Fleurs du Mal (Litterature, Arts)
+(5, 1), -- L'etranger (Litterature)
+(6, 1), (6, 3), -- Harry Potter (Litterature, Jeunesse)
+(7, 2), (7, 7), -- Algorithmes avances (Sciences, Informatique)
+(8, 1), -- Seigneur des Anneaux (Litterature)
+(9, 1), (9, 5), -- Bible de Gutenberg (Litterature, Histoire-Geographie)
+(10, 1), (10, 2); -- Voyage au centre de la Terre (Litterature, Sciences)
+
+-- Insertion d'exemplaires
+INSERT INTO Exemplaire (Id_Livre) VALUES 
+(1), (1), (1), -- 3 exemplaires du Petit Prince
+(2), (2), -- 2 exemplaires de 1984
+(3), -- 1 exemplaire du Manuel de Physique Quantique
+(4), -- 1 exemplaire des Fleurs du Mal (rare)
+(5), (5), (5), (5), -- 4 exemplaires de L'etranger
+(6), (6), (6), (6), (6), -- 5 exemplaires de Harry Potter
+(7), (7), -- 2 exemplaires d'Algorithmes avances
+(8), (8), (8), -- 3 exemplaires du Seigneur des Anneaux
+(9), -- 1 exemplaire de la Bible de Gutenberg (rare)
+(10), (10); -- 2 exemplaires de Voyage au centre de la Terre
+
 
 
 CREATE OR REPLACE VIEW vue_livres_disponibles AS
@@ -203,15 +242,12 @@ SELECT
     l.Id AS Livre_id,
     l.Nom AS Titre,
     tl.Nom_type AS Type_livre,
-    c.Nom_categorie AS Categorie,
     e.Id AS Exemplaire_id,
     e.Date_ajout
 FROM 
     Livre l
 JOIN 
     Type_Livre tl ON l.Id_type_livre = tl.Id
-JOIN 
-    Categorie c ON l.Id_Categorie = c.Id
 JOIN 
     Exemplaire e ON l.Id = e.Id_Livre
 WHERE 
@@ -225,6 +261,7 @@ WHERE
 CREATE OR REPLACE VIEW vue_emprunts_en_cours AS
 SELECT 
     p.Id AS Pret_id,
+    
     u.Nom AS Nom_emprunteur,
     u.Prenom AS Prenom_emprunteur,
     ta.Nom_type AS Type_adherent,
@@ -232,7 +269,7 @@ SELECT
     e.Id AS Exemplaire_id,
     p.Date_pret,
     p.Date_retour_prevue,
-    s.Libelle AS Statut,
+    u.Id AS User_id,
     CASE 
         WHEN CURRENT_DATE > p.Date_retour_prevue THEN 'En retard'
         ELSE 'Dans les temps'
@@ -247,12 +284,8 @@ JOIN
     Exemplaire e ON p.Id_Exemplaire = e.Id
 JOIN 
     Livre l ON e.Id_Livre = l.Id
-JOIN 
-    Suivi_Statut_Pret ssp ON p.Id = ssp.Id_pret
-JOIN 
-    Statut s ON ssp.Id_statut = s.Id
+
 WHERE 
-    s.Libelle = 'Actif' AND
     p.Id NOT IN (SELECT Id_pret_livre FROM Retour);
 
 CREATE OR REPLACE VIEW vue_reservations_actives AS

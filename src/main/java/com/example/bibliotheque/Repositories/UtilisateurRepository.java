@@ -3,6 +3,7 @@ package com.example.bibliotheque.Repositories;
 import com.example.bibliotheque.Models.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,10 +28,18 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Intege
     @Query("SELECT u FROM Utilisateur u JOIN u.sanctions s WHERE CURRENT_DATE BETWEEN s.dateDebutSanction AND s.dateFinSanction")
     List<Utilisateur> findUtilisateursAvecSanctionsActives();
 
+    @Query("SELECT u FROM Utilisateur u JOIN u.sanctions s WHERE CURRENT_DATE BETWEEN s.dateDebutSanction AND s.dateFinSanction WHERE u.id=:id")
+    Optional<Utilisateur> findUserSanctionne(@Param("id") Integer id);
+
     // Trouver des utilisateurs avec des prêts en retard
     @Query("SELECT DISTINCT u FROM Utilisateur u JOIN u.prets p WHERE p.dateRetourPrevue < CURRENT_DATE AND p.id NOT IN (SELECT r.pret.id FROM Retour r)")
     List<Utilisateur> findUtilisateursAvecPretsEnRetard();
 
     // Trouver des utilisateurs par nom ou prénom (recherche)
     List<Utilisateur> findByNomContainingIgnoreCaseOrPrenomContainingIgnoreCase(String nom, String prenom);
+
+    @Query(value="SELECT count(*) FROM vue_emprunts_en_cours as v WHERE v.user_id=:id",nativeQuery = true)
+    Integer countQuota(Integer userId);
+
+    
 }

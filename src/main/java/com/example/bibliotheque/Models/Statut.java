@@ -20,8 +20,6 @@ public class Statut {
     @Column(nullable = false, length = 50)
     private String libelle;
 
-    @OneToMany(mappedBy = "statut")
-    private List<SuiviStatutPret> suivisStatutPret;
 
     @OneToMany(mappedBy = "statut")
     private List<SuiviStatutReservation> suivisStatutReservation;

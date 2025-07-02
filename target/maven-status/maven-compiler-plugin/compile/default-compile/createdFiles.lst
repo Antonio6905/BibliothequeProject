@@ -23,12 +23,10 @@ com\example\bibliotheque\Models\Retour.class
 com\example\bibliotheque\Models\SuiviStatutProlongement.class
 com\example\bibliotheque\Models\Exemplaire.class
 com\example\bibliotheque\Models\Prolongement.class
-com\example\bibliotheque\Models\SuiviStatutPret.class
 com\example\bibliotheque\PecheApplication.class
 com\example\bibliotheque\Repositories\TypeLivreAutoriseRepository.class
 com\example\bibliotheque\Models\SuiviStatutReservation.class
 com\example\bibliotheque\Repositories\SuiviStatutReservationRepository.class
-com\example\bibliotheque\Repositories\SuiviStatutPretRepository.class
 com\example\bibliotheque\Repositories\TypeLivreRepository.class
 com\example\bibliotheque\Models\ConfigurationPret.class
 com\example\bibliotheque\Models\Sanction.class

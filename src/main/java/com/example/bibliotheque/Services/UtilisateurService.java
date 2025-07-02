@@ -1,5 +1,6 @@
 package com.example.bibliotheque.Services;
 
+import com.example.bibliotheque.Models.Livre;
 import com.example.bibliotheque.Models.Utilisateur;
 import com.example.bibliotheque.Repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,22 @@ public class UtilisateurService {
         // Hacher le mot de passe avant de sauvegarder
         utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
         return utilisateurRepository.save(utilisateur);
+    }
+
+    public Utilisateur findById(Integer id) {
+        return utilisateurRepository.findById(id).orElse(null);
+    }
+
+    public Utilisateur findIfSanctionne(Integer id) {
+        return utilisateurRepository.findUserSanctionne(id).orElse(null);
+    }
+
+    
+    public void deleteById(Integer id) {
+        utilisateurRepository.deleteById(id);
+    }
+
+    public Integer getQuota(Integer id) {
+        return utilisateurRepository.countQuota(id);
     }
 }

@@ -45,7 +45,10 @@ public class IndexController {
     }
 
     @GetMapping("/home")
-    public String home(){
+    public String home(HttpSession session){
+        if (session.getAttribute("utilisateur") == null) {
+            return "redirect:/login";
+        }
         return "home";
     }
 

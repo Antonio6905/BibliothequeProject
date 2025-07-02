@@ -34,9 +34,6 @@ public class Pret {
     private LocalDate dateRetourPrevue;
 
     @OneToMany(mappedBy = "pret")
-    private List<SuiviStatutPret> suivisStatut;
-
-    @OneToMany(mappedBy = "pret")
     private List<Prolongement> prolongements;
 
     @OneToOne(mappedBy = "pret")
