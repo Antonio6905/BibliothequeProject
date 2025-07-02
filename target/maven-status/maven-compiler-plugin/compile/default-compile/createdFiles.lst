@@ -28,7 +28,6 @@ com\example\bibliotheque\PecheApplication.class
 com\example\bibliotheque\Repositories\TypeLivreAutoriseRepository.class
 com\example\bibliotheque\Models\SuiviStatutReservation.class
 com\example\bibliotheque\Repositories\SuiviStatutReservationRepository.class
-com\example\bibliotheque\Controllers\AuthController.class
 com\example\bibliotheque\Repositories\SuiviStatutPretRepository.class
 com\example\bibliotheque\Repositories\TypeLivreRepository.class
 com\example\bibliotheque\Models\ConfigurationPret.class
