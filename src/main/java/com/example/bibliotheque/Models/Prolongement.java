@@ -18,7 +18,7 @@ public class Prolongement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_pret_livre", nullable = false)
     private Pret pret;
 

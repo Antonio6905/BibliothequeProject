@@ -33,8 +33,8 @@ public class Pret {
     @Column(name = "date_retour_prevue", nullable = false)
     private LocalDate dateRetourPrevue;
 
-    @OneToMany(mappedBy = "pret")
-    private List<Prolongement> prolongements;
+    @OneToOne(mappedBy = "pret")
+    private Prolongement prolongement;
 
     @OneToOne(mappedBy = "pret")
     private Retour retour;
