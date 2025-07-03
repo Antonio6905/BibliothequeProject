@@ -35,4 +35,5 @@ public class Reservation {
 
     @OneToMany(mappedBy = "reservation")
     private List<SuiviStatutReservation> suivisStatut;
+
 }

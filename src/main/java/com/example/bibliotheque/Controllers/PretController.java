@@ -2,7 +2,6 @@ package com.example.bibliotheque.Controllers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.bibliotheque.Models.ConfigurationPret;
 import com.example.bibliotheque.Models.Exemplaire;
-import com.example.bibliotheque.Models.Livre;
 import com.example.bibliotheque.Models.Pret;
 import com.example.bibliotheque.Models.Utilisateur;
 import com.example.bibliotheque.Services.ConfigurationPretService;
@@ -22,6 +20,8 @@ import com.example.bibliotheque.Services.LivreService;
 import com.example.bibliotheque.Services.PretService;
 import com.example.bibliotheque.Services.TypeAdherentService;
 import com.example.bibliotheque.Services.UtilisateurService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PretController {
@@ -45,6 +45,13 @@ public class PretController {
     private PretService pretService;
 
     @GetMapping("/pret")
+    public String showPret(Model model,HttpSession session) {
+        Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
+        model.addAttribute("listPrets", pretService.findByUtilisateur(user.getId()));
+        return "list/pret";
+    }
+
+    @GetMapping("/pret/form")
     public String showFormPret(Model model) {
         model.addAttribute("listLivres", livreService.findAll());
         return "admin/formPret";
@@ -79,7 +86,7 @@ public class PretController {
                 newPret.setDateRetourPrevue(LocalDate.now().plusDays(config.getDureePret()));
 
                 pretService.save(newPret);
-                return "redirect:/pret";
+                return "redirect:/pret/form";
             }
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());

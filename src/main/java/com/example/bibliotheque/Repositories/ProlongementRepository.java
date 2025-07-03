@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ProlongementRepository extends JpaRepository<Prolongement, Integer> {
-    List<Prolongement> findByPretId(Integer pretId);
+    Prolongement findByPretId(Integer pretId);
 }

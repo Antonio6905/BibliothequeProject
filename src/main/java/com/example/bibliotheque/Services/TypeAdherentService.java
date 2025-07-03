@@ -5,9 +5,7 @@ import com.example.bibliotheque.Repositories.TypeAdherentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.StackWalker.Option;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TypeAdherentService {

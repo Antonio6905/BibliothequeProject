@@ -13,7 +13,7 @@
                 Connecte en tant que bibliothecaire.
             </h2>
             <p class="text-gray-600 mb-4">Vous êtes connecté à la gestion de la bibliothèque.</p>
-            <a href="/pret">Ajouter un pret</a>
+            <a href="/pret/form">Ajouter un pret</a>
         </div>
     </div>
 </body>
