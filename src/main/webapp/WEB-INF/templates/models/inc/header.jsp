@@ -7,14 +7,9 @@
     </div>
     <hr class="text-light">
     <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item mb-2">
-            <a href="index.jsp" class="nav-link text-white fs-5">
-                <i class="bi bi-house-door-fill me-3 fs-4"></i> Dashboard
-            </a>
-        </li>
         <li class="mb-2">
-            <a href="livres.jsp" class="nav-link text-white fs-5">
-                <i class="bi bi-ship me-3 fs-4"></i> livres
+            <a href="/reservation" class="nav-link text-white fs-5">
+                <i class="bi bi-ship me-3 fs-4"></i> Reservation
             </a>
         </li>
         

@@ -21,9 +21,8 @@ public class SuiviStatutProlongement {
     @JoinColumn(name = "id_prolongement", nullable = false)
     private Prolongement prolongement;
 
-    @ManyToOne
-    @JoinColumn(name = "id_statut", nullable = false)
-    private Statut statut;
+    @Column(name="statut")
+    private String statut;
 
     @Column(name = "date_modification", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime dateModification;

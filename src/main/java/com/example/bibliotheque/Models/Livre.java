@@ -37,6 +37,4 @@ public class Livre {
     @OneToMany(mappedBy = "livre")
     private List<Exemplaire> exemplaires;
 
-    @OneToMany(mappedBy = "livre")
-    private List<Reservation> reservations;
 }

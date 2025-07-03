@@ -11,5 +11,4 @@ import java.util.List;
 public interface SuiviStatutReservationRepository extends JpaRepository<SuiviStatutReservation, Integer> {
     List<SuiviStatutReservation> findByReservationId(Integer reservationId);
 
-    List<SuiviStatutReservation> findByStatutId(Integer statutId);
 }

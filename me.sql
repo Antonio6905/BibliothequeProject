@@ -71,12 +71,6 @@ CREATE TABLE Exemplaire (
     Date_ajout DATE DEFAULT CURRENT_DATE
 );
 
--- Table Statut (pour les prêts, reservations et prolongements)
-CREATE TABLE Statut (
-    Id SERIAL PRIMARY KEY,
-    Libelle VARCHAR(50) NOT NULL CHECK (Libelle IN ('Valide', 'Refuse', 'Retard', 'Actif', 'Annule', 'Expire'))
-);
-
 -- Table Prêt de Livre
 CREATE TABLE Pret (
     Id SERIAL PRIMARY KEY,
@@ -86,13 +80,6 @@ CREATE TABLE Pret (
     Date_retour_prevue DATE NOT NULL
 );
 
--- Table Suivi Statut Prêt
-CREATE TABLE Suivi_Statut_Pret (
-    Id SERIAL PRIMARY KEY,
-    Id_pret INTEGER REFERENCES Pret(Id),
-    Id_statut INTEGER REFERENCES Statut(Id),
-    Date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
 
 -- Table Prolongement Prêt
 CREATE TABLE Prolongement (
@@ -106,7 +93,7 @@ CREATE TABLE Prolongement (
 CREATE TABLE Suivi_Statut_Prolongement (
     Id SERIAL PRIMARY KEY,
     Id_prolongement INTEGER REFERENCES Prolongement(Id),
-    Id_statut INTEGER REFERENCES Statut(Id),
+    statut VARCHAR(20) CHECK(statut  IN ('en cours','valide','non valide')),
     Date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -147,16 +134,17 @@ CREATE TABLE Type_Livre_Autorise (
 CREATE TABLE Reservation (
     Id SERIAL PRIMARY KEY,
     Id_utilisateur INTEGER REFERENCES Utilisateur(Id),
-    Id_livre INTEGER REFERENCES Livre(Id),
-    Date_demande TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Id_exemplaire INTEGER REFERENCES Exemplaire(Id),
+    Date_demande DATE DEFAULT CURRENT_DATE,
+    Date_fin DATE NOT NULL,
     Date_expiration DATE
 );
 
 -- Table Suivi Statut Reservation
-CREATE TABLE Suivi_Statut_Reservation (
+CREATE TABLE  Suivi_Statut_Reservation (
     Id SERIAL PRIMARY KEY,
     Id_reservation INTEGER REFERENCES Reservation(Id),
-    Id_statut INTEGER REFERENCES Statut(Id),
+    statut VARCHAR(20) CHECK(statut  IN ('en cours','valide','non valide')),
     Date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -166,10 +154,7 @@ CREATE TABLE Suivi_Statut_Reservation (
 INSERT INTO Type_Adherent (Nom_type) VALUES 
 ('elève'), ('Professeur'), ('Admin');
 
--- Insertion des statuts possibles
-INSERT INTO Statut (Libelle) VALUES 
- ('Valide'), ('Refuse'), ('Retard'), 
-('Actif'), ('Annule'), ('Expire') ;
+
 
 -- Insertion des types de livres
 INSERT INTO Type_Livre (Nom_type) VALUES 
@@ -185,18 +170,16 @@ INSERT INTO Categorie (Nom_categorie) VALUES
 ('Histoire-Geographie'), ('Philosophie'), ('Informatique');
 
 -- Insertion des configurations de prêt par type d'adherent
-INSERT INTO Configuration_Pret (Id_type_adherent, Nombre_livre_quota, Duree_pret) VALUES 
-(1, 5, 15),  -- elève
-(2, 10, 30), -- Professeur
-(3, 20, 60), -- Admin
-(4, 3, 15); -- Adherent simple
+INSERT INTO Configuration_Pret (Id_type_adherent, Nombre_livre_quota, Duree_pret,duree_prolongement) VALUES 
+(1, 5, 15,3),  -- elève
+(2, 10, 30,5), -- Professeur
+(3, 20, 60,10);-- Admin
 
 -- Insertion des sanctions par type d'adherent
 INSERT INTO Sanction_Type_Adherent (Id_type_adherent, Duree_sanction, Description_sanction) VALUES 
 (1, 7, 'Retard de moins de 7 jours'), 
 (1, 14, 'Retard de plus de 7 jours ou livre endommage'),
-(2, 3, 'Retard pour professeur'),
-(4, 10, 'Retard pour adherent simple');
+(2, 3, 'Retard pour professeur');
 
 -- Insertion de livres
 INSERT INTO Livre (Id_type_livre, Nom, Description, Date_edition) VALUES 
@@ -295,22 +278,19 @@ SELECT
     r.Id AS Reservation_id,
     u.Nom AS Nom_reservant,
     u.Prenom AS Prenom_reservant,
-    l.Nom AS Titre_livre,
+    e.id AS exemplaire_id,
     r.Date_demande,
-    r.Date_expiration,
-    s.Libelle AS Statut
+    r.Date_expiration
 FROM 
     Reservation r
 JOIN 
     Utilisateur u ON r.Id_utilisateur = u.Id
 JOIN 
-    Livre l ON r.Id_livre = l.Id
+    Exemplaire e ON r.Id_exemplaire = e.Id
 JOIN 
     Suivi_Statut_Reservation ssr ON r.Id = ssr.Id_reservation
-JOIN 
-    Statut s ON ssr.Id_statut = s.Id
 WHERE 
-    s.Libelle IN ('Valide', 'Actif') AND
+    ssr.statut='valide' AND
     r.Date_expiration >= CURRENT_DATE;
 
 CREATE OR REPLACE VIEW vue_sanctions_en_cours AS

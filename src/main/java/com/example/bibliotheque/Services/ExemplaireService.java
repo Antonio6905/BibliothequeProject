@@ -3,9 +3,12 @@ package com.example.bibliotheque.Services;
 import com.example.bibliotheque.Models.Exemplaire;
 import com.example.bibliotheque.Models.Exemplaire;
 import com.example.bibliotheque.Repositories.ExemplaireRepository;
+
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -35,6 +38,14 @@ public class ExemplaireService {
 
     public List<Exemplaire> findDispoByLivre(Integer id) {
         return exemplaireRepository.findDisponiblesByLivreId(id);
+    }
+
+    public Exemplaire findDispoByLivreAndId(Integer livreId,Integer id) {
+        return exemplaireRepository.findDisponiblesByLivreIdAndId(livreId,id);
+    }
+
+    public Boolean checkDispo( Integer id,LocalDate date) {
+        return exemplaireRepository.isExemplaireAvailable( id,date);
     }
 
     /**
