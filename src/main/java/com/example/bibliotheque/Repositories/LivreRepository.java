@@ -17,7 +17,4 @@ public interface LivreRepository extends JpaRepository<Livre, Integer> {
 
     @Query("SELECT l FROM Livre l WHERE l.nom LIKE %:searchTerm% OR l.description LIKE %:searchTerm%")
     List<Livre> searchByNomOrDescription(String searchTerm);
- 
-    @Query("SELECT l FROM Livre l WHERE l.id IN (select livreId from LivreDisponible)")
-    List<Livre> findifDispo(Integer livreId);
 }

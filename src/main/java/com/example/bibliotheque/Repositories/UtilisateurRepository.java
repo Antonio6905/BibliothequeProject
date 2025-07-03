@@ -28,7 +28,7 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Intege
     @Query("SELECT u FROM Utilisateur u JOIN u.sanctions s WHERE CURRENT_DATE BETWEEN s.dateDebutSanction AND s.dateFinSanction")
     List<Utilisateur> findUtilisateursAvecSanctionsActives();
 
-    @Query("SELECT u FROM Utilisateur u JOIN u.sanctions s WHERE CURRENT_DATE BETWEEN s.dateDebutSanction AND s.dateFinSanction WHERE u.id=:id")
+    @Query("SELECT u FROM Utilisateur u JOIN u.sanctions s WHERE CURRENT_DATE BETWEEN s.dateDebutSanction AND s.dateFinSanction AND u.id=:id")
     Optional<Utilisateur> findUserSanctionne(@Param("id") Integer id);
 
     // Trouver des utilisateurs avec des prêts en retard
@@ -39,7 +39,7 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Intege
     List<Utilisateur> findByNomContainingIgnoreCaseOrPrenomContainingIgnoreCase(String nom, String prenom);
 
     @Query(value="SELECT count(*) FROM vue_emprunts_en_cours as v WHERE v.user_id=:id",nativeQuery = true)
-    Integer countQuota(Integer userId);
+    Integer countQuota(@Param("id")Integer userId);
 
     
 }

@@ -139,6 +139,10 @@
                     %>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="exemplaireId">Numéro d'exemplaire</label>
+                <input type="number" id="exemplaireId" name="exemplaireId" min="1" step="1" required/>
+            </div>
             <div>
                 <button type="submit">Valider</button>
             </div>

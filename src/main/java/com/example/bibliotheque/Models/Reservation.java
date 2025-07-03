@@ -24,11 +24,11 @@ public class Reservation {
     private Utilisateur utilisateur;
 
     @ManyToOne
-    @JoinColumn(name = "id_livre", nullable = false)
-    private Livre livre;
+    @JoinColumn(name = "id_exemplaire", nullable = false)
+    private Exemplaire exemplaire;
 
-    @Column(name = "date_demande", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime dateDemande;
+    @Column(name = "date_demande", columnDefinition = "DATE DEFAULT CURRENT_DATE")
+    private LocalDate dateDemande;
 
     @Column(name = "date_expiration")
     private LocalDate dateExpiration;

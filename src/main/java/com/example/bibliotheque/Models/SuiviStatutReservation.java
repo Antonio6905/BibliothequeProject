@@ -21,9 +21,8 @@ public class SuiviStatutReservation {
     @JoinColumn(name = "id_reservation", nullable = false)
     private Reservation reservation;
 
-    @ManyToOne
-    @JoinColumn(name = "id_statut", nullable = false)
-    private Statut statut;
+    @Column(name = "statut",nullable = false)
+    private String statut;
 
     @Column(name = "date_modification", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime dateModification;
