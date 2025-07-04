@@ -48,4 +48,8 @@ public class ReservationService {
         reservationRepository.deleteById(id);
     }
 
+    public List<Reservation> findNonTraite() {
+        return reservationRepository.findNonTraite();
+    }
+
 }

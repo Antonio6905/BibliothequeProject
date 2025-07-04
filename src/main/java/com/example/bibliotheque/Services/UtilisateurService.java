@@ -1,6 +1,5 @@
 package com.example.bibliotheque.Services;
 
-import com.example.bibliotheque.Models.Livre;
 import com.example.bibliotheque.Models.Utilisateur;
 import com.example.bibliotheque.Repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;

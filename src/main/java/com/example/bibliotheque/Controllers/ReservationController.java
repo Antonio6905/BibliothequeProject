@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,7 +16,9 @@ import com.example.bibliotheque.Models.ConfigurationPret;
 import com.example.bibliotheque.Models.Exemplaire;
 import com.example.bibliotheque.Models.Livre;
 import com.example.bibliotheque.Models.Pret;
+import com.example.bibliotheque.Models.Prolongement;
 import com.example.bibliotheque.Models.Reservation;
+import com.example.bibliotheque.Models.SuiviStatutProlongement;
 import com.example.bibliotheque.Models.SuiviStatutReservation;
 import com.example.bibliotheque.Models.Utilisateur;
 import com.example.bibliotheque.Services.ConfigurationPretService;
@@ -52,10 +55,19 @@ public class ReservationController {
     private SuiviStatutReservationService suiviStatutReservationService;
 
     @Autowired
+    private PretService pretService;
+
+    @Autowired
     private TypeAdherentService typeAdherentService;
 
     @GetMapping("/reservation")
     public String showFormReservation(Model model) {
+        model.addAttribute("listLivres", livreService.findAll());
+        return "list/reservation";
+    }
+
+    @GetMapping("/reservation/form")
+    public String showReservation(Model model) {
         model.addAttribute("listLivres", livreService.findAll());
         return "form/reservation";
     }
@@ -96,7 +108,7 @@ public class ReservationController {
                 SuiviStatutReservation statut = new SuiviStatutReservation();
                 statut.setDateModification(LocalDateTime.now());
                 statut.setReservation(newResa);
-                statut.setStatut("en cours");
+                statut.setStatut("non traite");
 
                 suiviStatutReservationService.save(statut);
 
@@ -105,6 +117,49 @@ public class ReservationController {
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return "form/reservation";
+        }
+    }
+
+    @GetMapping("/reservation/response/{reservationId}/{response}")
+    @Transactional
+    public String repondreReservation(
+            @PathVariable Integer reservationId,
+            @PathVariable String response,
+            Model model) {
+
+        // Vérifier que la réponse est valide
+        try {
+            Reservation reservation = reservationService.findById(reservationId);
+            if (reservation == null) {
+                throw new Exception("Reservation not found");
+            }
+            Utilisateur user = reservation.getUtilisateur();
+            if (user == null) {
+                throw new Exception("User not found");
+                
+            } 
+            ConfigurationPret config = configurationPretService.findByTypeAdherent(user.getTypeAdherent().getId());
+            SuiviStatutReservation statut = new SuiviStatutReservation();
+            statut.setDateModification(LocalDateTime.now());
+            statut.setReservation(reservation);
+            statut.setStatut(response);
+
+            if(response.equalsIgnoreCase("valide")){
+                Pret pret = new Pret();
+                pret.setUtilisateur(user);
+                pret.setDatePret(reservation.getDateDemande().atStartOfDay());
+                pret.setDateRetourPrevue(pret.getDatePret().plusDays(config.getDureePret()).toLocalDate());
+                pret.setExemplaire(reservation.getExemplaire());
+                pretService.save(pret);
+            }
+
+            suiviStatutReservationService.save(statut);
+
+            return "redirect:/reservation";
+            
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return "list/reservation";
         }
     }
 }
