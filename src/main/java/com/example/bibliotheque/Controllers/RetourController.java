@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.bibliotheque.Models.Pret;
 import com.example.bibliotheque.Models.Retour;
@@ -33,21 +34,21 @@ public class RetourController {
     @Autowired
     private SanctionTypeAdherentService sanctionTypeAdherentService;
 
-    @GetMapping("/retour/{idPret}")
-    public String executeRetour(@PathVariable Integer idPret,Model model){
+    @GetMapping("/retour")
+    public String executeRetour(@RequestParam(value = "idPret") Integer idPret,@RequestParam(value = "dateRetour",required = true)LocalDate dateRetour,Model model){
         try {
             Pret pret = pretService.findById(idPret);
             Utilisateur user = pret.getUtilisateur();
             Retour retour = new Retour();
-            retour.setDateRemiseEffective(LocalDateTime.now());
+            retour.setDateRemiseEffective(dateRetour.atStartOfDay());
             retour.setPret(pret);
             retourService.save(retour);
 
-            if(pret.getDateRetourPrevue().isBefore(LocalDateTime.now().toLocalDate())){
+            if(pret.getDateRetourPrevue().isBefore(dateRetour)){
                 Sanction sanction = new Sanction();
                 sanction.setMotif("Retard sur retour de livre");
-                sanction.setDateDebutSanction(LocalDate.now());
-                LocalDate finSanction = LocalDate.now().plusDays(sanctionTypeAdherentService.findByTypeAdherentId(user.getTypeAdherent().getId()).getDureeSanction());
+                sanction.setDateDebutSanction(dateRetour);
+                LocalDate finSanction = dateRetour.plusDays(sanctionTypeAdherentService.findByTypeAdherentId(user.getTypeAdherent().getId()).getDureeSanction());
                 sanction.setDateFinSanction(finSanction);
                 sanction.setPret(pret);
                 sanction.setUtilisateur(user);

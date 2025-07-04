@@ -13,6 +13,12 @@
                 Bienvenue, <%= ((Utilisateur) session.getAttribute("utilisateur")).getPrenom() %> <%= ((Utilisateur) session.getAttribute("utilisateur")).getNom() %>
             </h2>
             <p class="text-gray-600 mb-4">Vous êtes connecté à la gestion de la bibliothèque.</p>
+            <a href="/pret" class="inline-block bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+                View Prets
+            </a>
+            <a href="/reservation/form" class="inline-block bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+                Ajouter une reservation
+            </a>
             <a href="/logout" class="inline-block bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700">
                 Se déconnecter
             </a>

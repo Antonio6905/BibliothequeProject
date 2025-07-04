@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TypeLivreRepository extends JpaRepository<TypeLivre, Integer> {
-    TypeLivre findByNomType(String nomType);
 }

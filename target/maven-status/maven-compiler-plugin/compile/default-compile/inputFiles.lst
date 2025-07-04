@@ -1,6 +1,7 @@
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Config\SecurityConfig.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\AdminController.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\IndexController.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\LivreController.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\PretController.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\ProlongementController.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\ReservationController.java
@@ -53,4 +54,5 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\SuiviStatutProlongementService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\SuiviStatutReservationService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\TypeAdherentService.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\TypeLivreService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\UtilisateurService.java

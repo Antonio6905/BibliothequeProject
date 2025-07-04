@@ -140,16 +140,36 @@
                 overflow-x: auto;
             }
         }
+
+        .btn-return {
+            background-color: #17a2b8;
+            color: white;
+            padding: 3px 8px;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .form-control-sm {
+            padding: 0.2rem 0.4rem;
+            font-size: 0.8rem;
+            height: auto;
+        }
+
+        .btn-sm {
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
     <!-- Inclusion du header (sidebar) -->
-    <jsp:include page="../inc/header.jsp" />
 
     <!-- Contenu principal -->
     <div class="main-content">
         <div class="card-container">
             <h2>Gestion des prêts</h2>
+            <a href="/pret/form">Ajouter un pret</a>
             
             <% if (request.getAttribute("message") != null) { %>
                 <p class="success-message"><%= request.getAttribute("message") %></p>
@@ -188,14 +208,21 @@
                             <td><%= pret.getDatePret().toLocalDate() %></td>
                             <td><%= pret.getDateRetourPrevue() %></td>
                             <td class="<%= statusClass %>"><%= status %></td>
+                            <!-- Dans la partie <td> des actions -->
                             <td>
                                 <% if (!isReturned) { %>
-                                    <a href="/retour/<%= pret.getId() %>" class="btn-return" 
-                                       onclick="return confirm('Confirmer le retour de ce prêt ?')">
-                                        <i class="bi bi-arrow-return-left"></i> Enregistrer retour
-                                    </a>
+                                    <button class="btn-return" onclick="document.getElementById('returnForm-<%= pret.getId() %>').style.display='block'">
+                                        <i class="bi bi-arrow-return-left"></i> Retour
+                                    </button>
+                                    
+                                    <form id="returnForm-<%= pret.getId() %>" action="/retour" method="get" style="display:none; margin-top:5px;">
+                                        <input type="hidden" name="idPret" value="<%= pret.getId() %>">
+                                        <input type="date" name="dateRetour" value="<%= LocalDate.now() %>" required
+                                            class="form-control-sm">
+                                        <button type="submit" class="btn btn-sm btn-primary">OK</button>
+                                    </form>
                                 <% } else { %>
-                                    <span>Retour enregistré le <%= pret.getRetour().getDateRemiseEffective().toLocalDate() %></span>
+                                    Retourné le <%= pret.getRetour().getDateRemiseEffective().toLocalDate() %>
                                 <% } %>
                             </td>
                         </tr>

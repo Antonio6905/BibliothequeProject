@@ -13,7 +13,10 @@
                 Connecte en tant que bibliothecaire.
             </h2>
             <p class="text-gray-600 mb-4">Vous êtes connecté à la gestion de la bibliothèque.</p>
-            <a href="/pret/form">Ajouter un pret</a>
+            <a href="/admin/pret">Voir les prets en cours</a>
+            <a href="/admin/reservation">Voir les reservations a valider</a>
+            <a href="/admin/prolongement">Voir les prolongements a valider</a>
+
         </div>
     </div>
 </body>
