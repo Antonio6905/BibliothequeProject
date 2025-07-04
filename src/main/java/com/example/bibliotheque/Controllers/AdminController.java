@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.example.bibliotheque.Services.PretService;
 import com.example.bibliotheque.Services.ProlongementService;
 import com.example.bibliotheque.Services.ReservationService;
 
@@ -19,6 +20,8 @@ public class AdminController {
     @Autowired
     private ProlongementService prolongementService;
     
+    @Autowired
+    private PretService pretService;
 
     @GetMapping( "/admin")
     public String showAdminPage() {
@@ -36,6 +39,12 @@ public class AdminController {
     public String showAdminPageProlongement(Model model) {
         model.addAttribute("listProlongements", prolongementService.findNonTraite());
         return "admin/prolongement";
+    }
+
+    @GetMapping("/admin/pret")
+    public String showAdminPagePret(Model model) {
+        model.addAttribute("listPrets", pretService.findAll());
+        return "admin/pret";
     }
 
 }
