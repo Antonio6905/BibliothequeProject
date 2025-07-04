@@ -43,7 +43,7 @@ public class AdminController {
 
     @GetMapping("/admin/pret")
     public String showAdminPagePret(Model model) {
-        model.addAttribute("listPrets", pretService.findAll());
+        model.addAttribute("listPrets", pretService.findEnCours());
         return "admin/pret";
     }
 

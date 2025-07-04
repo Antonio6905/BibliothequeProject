@@ -271,7 +271,7 @@ JOIN
     Livre l ON e.Id_Livre = l.Id
 
 WHERE 
-    p.Id NOT IN (SELECT Id_pret_livre FROM Retour);
+    p.Id NOT IN (SELECT Id_pret_livre FROM Retour) AND p.date_pret<=CURRENT_TIMESTAMP;
 
 CREATE OR REPLACE VIEW vue_reservations_actives AS
 SELECT 

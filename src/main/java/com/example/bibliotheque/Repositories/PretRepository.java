@@ -18,7 +18,7 @@ public interface PretRepository extends JpaRepository<Pret, Integer> {
 
     List<Pret> findByExemplaireId(Integer exemplaireId);
 
-    @Query("SELECT p FROM Pret p WHERE p.id NOT IN (SELECT r.pret.id FROM Retour r)")
+    @Query(value = "SELECT p.* FROM Pret p WHERE p.id IN (SELECT vec.pret_id FROM vue_emprunts_en_cours vec)",nativeQuery=true)
     List<Pret> findPretsEnCours();
 
     @Query("SELECT p FROM Pret p WHERE p.dateRetourPrevue < CURRENT_DATE AND p.id NOT IN (SELECT r.pret.id FROM Retour r)")
