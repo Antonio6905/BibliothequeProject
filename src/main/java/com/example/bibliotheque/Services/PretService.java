@@ -26,6 +26,10 @@ public class PretService {
         return pretRepository.findByUtilisateurIdEnCours(id);
     }
 
+    public List<Pret> findEnCours() {
+        return pretRepository.findPretsEnCours();
+    }
+
     /**
      * Récupérer un Pret par son ID
      * 
