@@ -93,7 +93,7 @@ CREATE TABLE Prolongement (
 CREATE TABLE Suivi_Statut_Prolongement (
     Id SERIAL PRIMARY KEY,
     Id_prolongement INTEGER REFERENCES Prolongement(Id),
-    statut VARCHAR(20) CHECK(statut  IN ('en cours','valide','non valide')),
+    statut VARCHAR(20) CHECK(statut  IN ('non traite','valide','non valide')),
     Date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -144,7 +144,7 @@ CREATE TABLE Reservation (
 CREATE TABLE  Suivi_Statut_Reservation (
     Id SERIAL PRIMARY KEY,
     Id_reservation INTEGER REFERENCES Reservation(Id),
-    statut VARCHAR(20) CHECK(statut  IN ('en cours','valide','non valide')),
+    statut VARCHAR(20) CHECK(statut  IN ('non traite','valide','non valide')),
     Date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -324,3 +324,42 @@ LEFT JOIN
     Livre l ON e.Id_Livre = l.Id
 WHERE 
     CURRENT_DATE <= s.Date_fin_sanction;
+
+CREATE OR REPLACE VIEW vue_reservations_non_traites AS
+SELECT 
+    r.Id AS reservation_id
+FROM 
+    reservation r
+JOIN 
+    (
+        SELECT 
+            Id_reservation, 
+            statut, 
+            Date_modification,
+            ROW_NUMBER() OVER (PARTITION BY Id_reservation ORDER BY Date_modification DESC) AS rn
+        FROM 
+            Suivi_Statut_Reservation
+    ) ssr ON r.Id = ssr.Id_reservation AND ssr.rn = 1
+WHERE 
+    ssr.statut = 'non traite'  -- ou 'en cours' selon votre logique métier
+    AND r.Date_expiration >= CURRENT_DATE;
+
+CREATE OR REPLACE VIEW vue_prolongements_non_traites AS
+SELECT 
+p.Id AS prolongement_id
+FROM 
+    Prolongement p
+JOIN Pret pr ON p.Id_pret_livre = pr.id
+JOIN 
+    (
+        SELECT 
+            Id_prolongement, 
+            statut, 
+            Date_modification,
+            ROW_NUMBER() OVER (PARTITION BY Id_prolongement ORDER BY Date_modification DESC) AS rn
+        FROM 
+            Suivi_Statut_Prolongement
+    ) s ON p.Id = s.Id_prolongement AND s.rn = 1
+WHERE 
+    s.statut = 'non traite'
+    AND pr.Date_retour_prevue>=CURRENT_DATE;

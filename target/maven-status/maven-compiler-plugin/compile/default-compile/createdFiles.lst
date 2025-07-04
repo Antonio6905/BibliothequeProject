@@ -7,6 +7,7 @@ com\example\bibliotheque\Models\TypeLivreAutorise.class
 com\example\bibliotheque\Models\TypeLivre.class
 com\example\bibliotheque\Models\Categorie.class
 com\example\bibliotheque\Repositories\LivreRepository.class
+com\example\bibliotheque\Services\SuiviStatutProlongementService.class
 com\example\bibliotheque\Models\Pret.class
 com\example\bibliotheque\Controllers\ReservationController.class
 com\example\bibliotheque\Repositories\CategorieRepository.class
@@ -16,6 +17,7 @@ com\example\bibliotheque\Controllers\AdminController.class
 com\example\bibliotheque\Models\SuiviStatutReservation.class
 com\example\bibliotheque\Controllers\IndexController.class
 com\example\bibliotheque\Services\LivreService.class
+com\example\bibliotheque\Services\ProlongementService.class
 com\example\bibliotheque\Services\TypeAdherentService.class
 com\example\bibliotheque\Models\ConfigurationPret.class
 com\example\bibliotheque\Models\LivreDisponible.class
@@ -23,6 +25,7 @@ com\example\bibliotheque\Models\Sanction.class
 com\example\bibliotheque\Repositories\TypeAdherentRepository.class
 com\example\bibliotheque\Services\PretService.class
 com\example\bibliotheque\Services\ExemplaireService.class
+com\example\bibliotheque\Controllers\ProlongementController.class
 com\example\bibliotheque\Models\SanctionTypeAdherent.class
 com\example\bibliotheque\Models\TypeAdherent.class
 com\example\bibliotheque\Repositories\UtilisateurRepository.class
@@ -41,6 +44,7 @@ com\example\bibliotheque\Models\Prolongement.class
 com\example\bibliotheque\PecheApplication.class
 com\example\bibliotheque\Repositories\TypeLivreAutoriseRepository.class
 com\example\bibliotheque\Repositories\SuiviStatutReservationRepository.class
+com\example\bibliotheque\Services\SuiviStatutReservationService.class
 com\example\bibliotheque\Repositories\TypeLivreRepository.class
 com\example\bibliotheque\Controllers\PretController.class
 com\example\bibliotheque\Repositories\ConfigurationPretRepository.class

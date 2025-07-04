@@ -10,14 +10,9 @@ import java.util.List;
 
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
-    List<Reservation> findByUtilisateurId(Integer utilisateurId);
+        List<Reservation> findByUtilisateurId(Integer utilisateurId);
 
-
-    @Query("SELECT r FROM Reservation r WHERE r.dateExpiration >= CURRENT_DATE AND r.id IN " +
-            "(SELECT ssr.reservation.id FROM SuiviStatutReservation ssr WHERE ssr.statut='valide')")
-    List<Reservation> findReservationsActives();
-
-    @Query("SELECT r FROM Reservation r WHERE r.dateExpiration < CURRENT_DATE AND r.id IN " +
-            "(SELECT ssr.reservation.id FROM SuiviStatutReservation ssr WHERE ssr.statut = 'valide')")
-    List<Reservation> findReservationsExpirees();
+        @Query(value = "SELECT r.* FROM reservation r WHERE r.id IN (SELECT reservation_id FROM vue_reservations_non_traites) ",nativeQuery = true)
+        List<Reservation> findNonTraite();
 }
+

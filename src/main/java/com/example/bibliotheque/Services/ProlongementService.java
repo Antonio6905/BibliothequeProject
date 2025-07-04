@@ -25,6 +25,10 @@ public class ProlongementService {
         return prolongementRepository.findAll();
     }
 
+    public List<Prolongement> findNonTraite() {
+        return prolongementRepository.findNonTraite();
+    }
+
     public Prolongement findByPretId(Integer id) {
         return prolongementRepository.findByPretId(id);
     }

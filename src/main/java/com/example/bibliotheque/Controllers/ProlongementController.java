@@ -12,7 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import jakarta.servlet.http.HttpSession;
+import jakarta.transaction.Transactional;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Controller
 public class ProlongementController {
@@ -29,8 +32,11 @@ public class ProlongementController {
     @Autowired
     private ConfigurationPretService configPretService;
 
+    
+
     // Endpoint pour faire une demande de prolongement
     @GetMapping("/prolongement/demand/{pretId}")
+    @Transactional
     public String demanderProlongement(
             @PathVariable Integer pretId,
             HttpSession session,
@@ -62,10 +68,10 @@ public class ProlongementController {
             prolongement.setDateFinProlongement(dateFin);
             prolongement = prolongementService.save(prolongement);
 
-            // Créer le suivi de statut "en cours"
             SuiviStatutProlongement suivi = new SuiviStatutProlongement();
             suivi.setProlongement(prolongement);
-            suivi.setStatut("en cours");
+            suivi.setStatut("non traite");
+            suivi.setDateModification(LocalDateTime.now());
             suiviStatutService.save(suivi);
 
             model.addAttribute("message", "Demande de prolongement enregistrée");
@@ -78,15 +84,16 @@ public class ProlongementController {
 
     // Endpoint pour répondre à une demande de prolongement
     @GetMapping("/prolongement/response/{pretId}/{response}")
+    @Transactional
     public String repondreProlongement(
             @PathVariable Integer pretId,
-            @PathVariable String reponse,
+            @PathVariable String response,
             HttpSession session,
             Model model) {
 
         // Vérifier que la réponse est valide
         try {
-            if (!reponse.equalsIgnoreCase("valide") && !reponse.equalsIgnoreCase("non valide")) {
+            if (!response.equalsIgnoreCase("valide") && !response.equalsIgnoreCase("non valide")) {
                 model.addAttribute("error", "Réponse invalide");
                 return "error";
             }
@@ -101,18 +108,21 @@ public class ProlongementController {
             // Mettre à jour le statut
             SuiviStatutProlongement suivi = new SuiviStatutProlongement();
             suivi.setProlongement(prolongement);
-            suivi.setStatut(reponse.toLowerCase());
+            suivi.setStatut(response.toLowerCase());
+            suivi.setDateModification(LocalDateTime.now());
             suiviStatutService.save(suivi);
 
             // Si validé, mettre à jour la date de retour du prêt
-            if (reponse.equalsIgnoreCase("valide")) {
+            if (response.equalsIgnoreCase("valide")) {
                 Pret pret = prolongement.getPret();
-                pret.setDateRetourPrevue(prolongement.getDateFinProlongement());
+                ConfigurationPret config = configPretService.findByTypeAdherent(
+                pret.getUtilisateur().getTypeAdherent().getId());
+                pret.setDateRetourPrevue(pret.getDateRetourPrevue().plusDays(config.getDureeProlongement()));
                 pretService.save(pret);
             }
 
             model.addAttribute("message", "Réponse au prolongement enregistrée");
-            return "rediret:/admin";
+            return "redirect:/admin";
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return "admin/admin";

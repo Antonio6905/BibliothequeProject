@@ -134,8 +134,6 @@
     </style>
 </head>
 <body>
-    <!-- Inclusion du header (sidebar) -->
-    <jsp:include page="../inc/header.jsp" />
 
     <!-- Contenu principal -->
     <div class="main-content">
