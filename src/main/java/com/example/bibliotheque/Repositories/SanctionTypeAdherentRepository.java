@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface SanctionTypeAdherentRepository extends JpaRepository<SanctionTypeAdherent, Integer> {
-    List<SanctionTypeAdherent> findByTypeAdherentId(Integer typeAdherentId);
+    SanctionTypeAdherent findByTypeAdherentId(Integer typeAdherentId);
 }
