@@ -119,7 +119,8 @@ CREATE TABLE Sanction_Type_Adherent (
     Id SERIAL PRIMARY KEY,
     Id_type_adherent INTEGER REFERENCES Type_Adherent(Id),
     Duree_sanction INTEGER NOT NULL,
-    Description_sanction TEXT
+    Description_sanction TEXT,
+    UNIQUE (id_type_adherent)
 );
 
 -- Table Type Livre Autorise
@@ -178,7 +179,6 @@ INSERT INTO Configuration_Pret (Id_type_adherent, Nombre_livre_quota, Duree_pret
 -- Insertion des sanctions par type d'adherent
 INSERT INTO Sanction_Type_Adherent (Id_type_adherent, Duree_sanction, Description_sanction) VALUES 
 (1, 7, 'Retard de moins de 7 jours'), 
-(1, 14, 'Retard de plus de 7 jours ou livre endommage'),
 (2, 3, 'Retard pour professeur');
 
 -- Insertion de livres
