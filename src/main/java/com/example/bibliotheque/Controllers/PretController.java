@@ -15,6 +15,7 @@ import com.example.bibliotheque.Models.ConfigurationPret;
 import com.example.bibliotheque.Models.Exemplaire;
 import com.example.bibliotheque.Models.Pret;
 import com.example.bibliotheque.Models.Utilisateur;
+import com.example.bibliotheque.Services.AbonnementService;
 import com.example.bibliotheque.Services.ConfigurationPretService;
 import com.example.bibliotheque.Services.ExemplaireService;
 import com.example.bibliotheque.Services.LivreService;
@@ -45,6 +46,9 @@ public class PretController {
     @Autowired
     private PretService pretService;
 
+    @Autowired
+    private AbonnementService abonnementService;
+
     @GetMapping("/pret")
     public String showPret(Model model,HttpSession session) {
         Utilisateur user = (Utilisateur) session.getAttribute("utilisateur");
@@ -72,7 +76,10 @@ public class PretController {
             } else {
                 Exemplaire exemplaire = exemplaireService.findDispoByLivreAndId(livreId,exemplaireId);
                 ConfigurationPret config = configurationPretService.findByTypeAdherent(user.getTypeAdherent().getId());
-                if (exemplaire == null) {
+                if(!abonnementService.isAbonnementActif(user.getId())){
+                    throw new Exception("Cet adherent n'est plus abonne!");
+                }
+                else if (exemplaire == null) {
                     throw new Exception("Cet exemplaire n'est pas disponible!");
                 } else if (utilisateurService.findIfSanctionne(numero) != null) {
                     throw new Exception("User encore sanctionne!");

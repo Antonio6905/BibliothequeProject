@@ -8,8 +8,10 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\ReservationController.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\RetourController.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Controllers\SanctionController.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\dto\AdherentDto.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\dto\ExemplaireDto.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\dto\LivreDto.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Abonnement.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Categorie.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\ConfigurationPret.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Exemplaire.java
@@ -29,6 +31,7 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\TypeLivreAutorise.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Utilisateur.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\PecheApplication.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\AbonnementRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\CategorieRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\ConfigurationPretRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\ExemplaireRepository.java
@@ -45,6 +48,7 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\TypeLivreAutoriseRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\TypeLivreRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\UtilisateurRepository.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\AbonnementService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\ConfigurationPretService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\ExemplaireService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\LivreService.java

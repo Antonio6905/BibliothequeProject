@@ -4,6 +4,9 @@ import com.example.bibliotheque.Models.TypeAdherent;
 import com.example.bibliotheque.Models.Utilisateur;
 import com.example.bibliotheque.Services.TypeAdherentService;
 import com.example.bibliotheque.Services.UtilisateurService;
+
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -74,6 +77,7 @@ public class IndexController {
             @RequestParam String nom,
             @RequestParam String prenom,
             @RequestParam String password,
+            @RequestParam LocalDate dateNaissance,
             @RequestParam Integer typeAdherentId,
             RedirectAttributes redirectAttributes) {
         // Vérifier si le nom existe déjà
@@ -86,7 +90,8 @@ public class IndexController {
         Utilisateur utilisateur = new Utilisateur();
         utilisateur.setNom(nom);
         utilisateur.setPrenom(prenom);
-        utilisateur.setPassword(password); // Le mot de passe sera haché dans le service
+        utilisateur.setPassword(password);
+        utilisateur.setDateNaissance(dateNaissance); // Le mot de passe sera haché dans le service
         TypeAdherent typeAdherent = typeAdherentService.findById(typeAdherentId);
         if (typeAdherent == null) {
             redirectAttributes.addAttribute("error", "Type d'adhérent invalide.");

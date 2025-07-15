@@ -33,7 +33,8 @@ CREATE TABLE Configuration_Pret (
     Id_type_adherent INTEGER REFERENCES Type_Adherent(Id),
     Nombre_livre_quota INTEGER NOT NULL,
     Duree_pret INTEGER NOT NULL,
-    duree_prolongement INTEGER NOT NULL
+    duree_prolongement INTEGER NOT NULL,
+    duree_reservation INTEGER NOT NULL DEFAULT 5
 );
 
 -- Table Type Livre
@@ -129,6 +130,13 @@ CREATE TABLE Type_Livre_Autorise (
     Id_type_adherent INTEGER REFERENCES Type_Adherent(Id),
     Id_type_livre INTEGER REFERENCES Type_Livre(Id),
     UNIQUE (Id_type_adherent, Id_type_livre)
+);
+
+CREATE TABLE abonnement(
+    id SERIAL PRIMARY KEY,
+    Id_utilisateur INTEGER REFERENCES Utilisateur(id),
+    date_debut DATE DEFAULT CURRENT_DATE,
+    date_fin DATE NOT NULL
 );
 
 -- Table Reservation Livre

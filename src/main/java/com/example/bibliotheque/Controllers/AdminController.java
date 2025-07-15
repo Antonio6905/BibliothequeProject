@@ -46,5 +46,10 @@ public class AdminController {
         model.addAttribute("listPrets", pretService.findEnCours());
         return "admin/pret";
     }
+    
+    @GetMapping("/admin/adherent")
+    public String voirAdherent(Model model) {
+        return "admin/adherent";
+    }
 
 }

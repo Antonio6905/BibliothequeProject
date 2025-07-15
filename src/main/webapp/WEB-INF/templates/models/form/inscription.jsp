@@ -136,6 +136,10 @@
                 <input type="text" id="prenom" name="prenom" required/>
             </div>
             <div class="form-group">
+                <label for="dateNaissance">Date de naissance</label>
+                <input type="date" id="dateNaissance" name="dateNaissance" required/>
+            </div>
+            <div class="form-group">
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" required/>
             </div>
