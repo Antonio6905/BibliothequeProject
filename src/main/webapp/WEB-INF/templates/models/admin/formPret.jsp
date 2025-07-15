@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>Effectuer un pret</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -117,6 +118,7 @@
 </head>
 <body>
     <div class="login-container">
+    
         <h2>Effectuer un prêt</h2>
         <form action="/pret" method="post">
             <div class="form-group">
@@ -143,6 +145,10 @@
                 <label for="exemplaireId">Numéro d'exemplaire</label>
                 <input type="number" id="exemplaireId" name="exemplaireId" min="1" step="1" required/>
             </div>
+            <div class="form-group">
+                <label for="date">Date de pret</label>
+                <input type="date" name="date" id="date">
+            </div>
             <div>
                 <button type="submit">Valider</button>
             </div>
@@ -155,6 +161,7 @@
         <%
             }
         %>
+        <a href="/admin" class="btn btn-primary mb-3">Retour</a>
     </div>
 </body>
 </html>

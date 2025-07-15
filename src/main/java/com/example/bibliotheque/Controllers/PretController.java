@@ -2,6 +2,7 @@ package com.example.bibliotheque.Controllers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -62,6 +63,7 @@ public class PretController {
             @RequestParam Integer numero,
             @RequestParam Integer livreId,
             @RequestParam Integer exemplaireId,
+            @RequestParam LocalDate date,
             Model model) {
         Utilisateur user = utilisateurService.findById(numero);
         try {
@@ -82,7 +84,7 @@ public class PretController {
                 Pret newPret = new Pret();
                 newPret.setUtilisateur(user);
                 newPret.setExemplaire(exemplaire);
-                newPret.setDatePret(LocalDateTime.now());
+                newPret.setDatePret(LocalDateTime.of(date,LocalTime.now()));
                 newPret.setDateRetourPrevue(LocalDate.now().plusDays(config.getDureePret()));
 
                 pretService.save(newPret);

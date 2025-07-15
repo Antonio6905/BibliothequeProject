@@ -251,6 +251,7 @@
                     <% } %>
                 </tbody>
             </table>
+            <a href="/admin" class="btn btn-primary mb-3">Retour</a>
         </div>
     </div>
 

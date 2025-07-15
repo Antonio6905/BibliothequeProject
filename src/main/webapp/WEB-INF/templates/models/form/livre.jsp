@@ -24,6 +24,11 @@
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
         </div>
+
+        <div class="mb-3">
+            <label for="nbExemplaire" class="form-label">NbExemplaire</label>
+            <textarea class="form-control" id="nbExemplaire" name="nbExemplaire" value="1" min="1" step="1" rows="3"></textarea>
+        </div>
         
         <div class="mb-3">
             <label for="typeLivre" class="form-label">Type de livre</label>
@@ -41,7 +46,7 @@
         </div>
         
         <button type="submit" class="btn btn-primary">Enregistrer</button>
-        <a href="/livres" class="btn btn-secondary">Annuler</a>
+        <a href="/livre" class="btn btn-secondary">Annuler</a>
     </form>
 </div>
 </body>

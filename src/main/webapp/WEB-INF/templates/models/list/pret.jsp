@@ -203,6 +203,7 @@
                     <% } %>
                 </tbody>
             </table>
+            <a href="/home" class="btn btn-primary mb-3">Retour</a>
         </div>
     </div>
 
