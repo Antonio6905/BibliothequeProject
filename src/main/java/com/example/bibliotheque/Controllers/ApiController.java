@@ -10,8 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.bibliotheque.Models.Exemplaire;
 import com.example.bibliotheque.Models.Livre;
+import com.example.bibliotheque.Models.Utilisateur;
+import com.example.bibliotheque.Services.AbonnementService;
+import com.example.bibliotheque.Services.ConfigurationPretService;
 import com.example.bibliotheque.Services.ExemplaireService;
 import com.example.bibliotheque.Services.LivreService;
+import com.example.bibliotheque.Services.PretService;
+import com.example.bibliotheque.Services.SanctionService;
+import com.example.bibliotheque.Services.UtilisateurService;
+import com.example.bibliotheque.dto.AdherentDto;
 import com.example.bibliotheque.dto.ExemplaireDto;
 import com.example.bibliotheque.dto.LivreDto;
 
@@ -23,6 +30,18 @@ public class ApiController {
 
     @Autowired 
     private ExemplaireService exemplaireService;
+
+    @Autowired
+    private UtilisateurService utilisateurService;
+
+    @Autowired
+    private AbonnementService abonnementService;
+
+    @Autowired
+    private ConfigurationPretService configurationPretService;
+
+    @Autowired
+    private PretService pretService;
 
     @GetMapping("/api/livre/{livreId}")
     public ResponseEntity<LivreDto> testApi(@PathVariable Integer livreId) {
@@ -45,5 +64,28 @@ public class ApiController {
         
         return ResponseEntity.ok(dto);
     }
+
+    @GetMapping("/api/adherent/{adherentId}")
+    public ResponseEntity<AdherentDto> testApiAdherent(@PathVariable Integer adherentId) {
+        Utilisateur user = utilisateurService.findById(adherentId);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        AdherentDto dto = new AdherentDto();
+        dto.setNumero(adherentId);
+        dto.setNom(user.getNom());
+        dto.setPrenom(user.getPrenom());
+        dto.setIsAbonne(abonnementService.isAbonnementActif(adherentId));
+        dto.setNbPret(pretService.findByUtilisateur(adherentId).size());
+        dto.setQuota(configurationPretService.findByTypeAdherent(user.getTypeAdherent().getId()).getNombreLivreQuota());
+        dto.setDtn(user.getDateNaissance());
+        Utilisateur check = utilisateurService.findIfSanctionne(adherentId);
+        Boolean sanction = check!=null?true:false;
+        dto.setIsSanctionne(sanction);
+
+        return ResponseEntity.ok(dto);
+    }
+
+    
 
 }

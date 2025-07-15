@@ -26,4 +26,7 @@ public class ConfigurationPret {
 
     @Column(name = "duree_prolongement", nullable = false)
     private Integer dureeProlongement;
+
+    @Column(name = "duree_reservation", nullable = false)
+    private Integer dureeReservation;
 }

@@ -21,6 +21,7 @@ import com.example.bibliotheque.Models.Reservation;
 import com.example.bibliotheque.Models.SuiviStatutProlongement;
 import com.example.bibliotheque.Models.SuiviStatutReservation;
 import com.example.bibliotheque.Models.Utilisateur;
+import com.example.bibliotheque.Services.AbonnementService;
 import com.example.bibliotheque.Services.ConfigurationPretService;
 import com.example.bibliotheque.Services.ExemplaireService;
 import com.example.bibliotheque.Services.LivreService;
@@ -60,6 +61,9 @@ public class ReservationController {
     @Autowired
     private TypeAdherentService typeAdherentService;
 
+    @Autowired
+    private AbonnementService abonnementService;
+
     @GetMapping("/reservation")
     public String showFormReservation(Model model) {
         model.addAttribute("listLivres", livreService.findAll());
@@ -87,7 +91,10 @@ public class ReservationController {
             } else {
                 Exemplaire exemplaire = exemplaireService.findDispoByLivreAndId(livreId,exemplaireId);
                 ConfigurationPret config = configurationPretService.findByTypeAdherent(user.getTypeAdherent().getId());
-                if (exemplaire == null) {
+                if(!abonnementService.isAbonnementActif(user.getId())){
+                    throw new Exception("Vous n'etes plus abonne!");
+                }
+                else if (exemplaire == null) {
                     throw new Exception("Exemplaire Introuvable!");
                 } else if(!exemplaireService.checkDispo(exemplaireId,dateReservation)){
                     throw new Exception("Exemplaire encore emprunte ou deja reserve pour cette date!");
@@ -101,7 +108,7 @@ public class ReservationController {
                 Reservation newResa = new Reservation();
                 newResa.setUtilisateur(user);
                 newResa.setDateDemande(dateReservation);
-                newResa.setDateExpiration(dateReservation.plusDays(5));
+                newResa.setDateExpiration(dateReservation.plusDays(configurationPretService.findByTypeAdherent(user.getTypeAdherent().getId()).getDureeReservation()));
                 newResa.setExemplaire(exemplaire);
 
                 newResa = reservationService.save(newResa);
