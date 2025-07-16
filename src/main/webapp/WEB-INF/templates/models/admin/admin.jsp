@@ -19,6 +19,7 @@
             <a href="/admin/reservation" class="btn btn-primary mb-3">Voir les reservations a valider</a>
             <a href="/admin/prolongement" class="btn btn-primary mb-3">Voir les prolongements a valider</a>
             <a href="/admin/adherent" class="btn btn-primary mb-3">Voir details Adherent</a>
+            <a href="/admin/sanctions" class="btn btn-primary mb-3">Voir les sanctions actives</a>
 
         </div>
     </div>
