@@ -97,12 +97,11 @@ public class PretController {
                 newPret.setUtilisateur(user);
                 newPret.setExemplaire(exemplaire);
                 newPret.setDatePret(LocalDateTime.of(date,LocalTime.now()));
-                if(jourFerieService.isFerie(date.plusDays(config.getDureePret()))){
-                    newPret.setDateRetourPrevue(date.plusDays(config.getDureePret()+1));
+                LocalDate theDate = date.plusDays(config.getDureePret());
+                while(jourFerieService.isFerie(theDate)){
+                    theDate = theDate.plusDays(1);
                 }
-                else{
-                    newPret.setDateRetourPrevue(date.plusDays(config.getDureePret()));
-                }
+                newPret.setDateRetourPrevue(theDate);
                 pretService.save(newPret);
                 return "redirect:/pret/form";
             }
