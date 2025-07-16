@@ -1,9 +1,7 @@
 -- Creation de la base de donnees
 CREATE DATABASE bibliotheque
     WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    CONNECTION LIMIT = -1;
+    OWNER = postgres;
 
 -- Connexion à la base de donnees
 \c bibliotheque
@@ -32,9 +30,16 @@ CREATE TABLE Configuration_Pret (
     Id SERIAL PRIMARY KEY,
     Id_type_adherent INTEGER REFERENCES Type_Adherent(Id),
     Nombre_livre_quota INTEGER NOT NULL,
+    Nombre_prolongement_quota INTEGER NOT NULL,
+    Nombre_reservation_quota INTEGER NOT NULL,
     Duree_pret INTEGER NOT NULL,
     duree_prolongement INTEGER NOT NULL,
     duree_reservation INTEGER NOT NULL DEFAULT 5
+);
+
+CREATE TABLE jour_ferie(
+    Id SERIAL PRIMARY KEY,
+    date_ferie DATE NOT NULL
 );
 
 -- Table Type Livre
@@ -156,79 +161,6 @@ CREATE TABLE  Suivi_Statut_Reservation (
     statut VARCHAR(20) CHECK(statut  IN ('non traite','valide','non valide')),
     Date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
--- Insertion des donnees de base
-
--- Insertion des types d'adherents
-INSERT INTO Type_Adherent (Nom_type) VALUES 
-('elève'), ('Professeur'), ('Admin');
-
-
-
--- Insertion des types de livres
-INSERT INTO Type_Livre (Nom_type) VALUES 
-('Simple'), ('Reserve'), ('Rare');
-
-INSERT INTO type_livre_autorise(id_type_adherent,id_type_livre) VALUES(1,1),(1,2),(2,1),(2,2),(2,3);
-
-
-
--- Insertion des categories
-INSERT INTO Categorie (Nom_categorie) VALUES 
-('Litterature'), ('Sciences'), ('Jeunesse'), ('Arts'), 
-('Histoire-Geographie'), ('Philosophie'), ('Informatique');
-
--- Insertion des configurations de prêt par type d'adherent
-INSERT INTO Configuration_Pret (Id_type_adherent, Nombre_livre_quota, Duree_pret,duree_prolongement) VALUES 
-(1, 5, 15,3),  -- elève
-(2, 10, 30,5), -- Professeur
-(3, 20, 60,10);-- Admin
-
--- Insertion des sanctions par type d'adherent
-INSERT INTO Sanction_Type_Adherent (Id_type_adherent, Duree_sanction, Description_sanction) VALUES 
-(1, 7, 'Retard de moins de 7 jours'), 
-(2, 3, 'Retard pour professeur');
-
--- Insertion de livres
-INSERT INTO Livre (Id_type_livre, Nom, Description, Date_edition) VALUES 
-(1, 'Le Petit Prince', 'Un classique de la litterature française', '1943-04-06'),
-(1, '1984', 'Roman dystopique de George Orwell', '1949-06-08'),
-(2, 'Manuel de Physique Quantique', 'Ouvrage reserve aux etudiants avances', '2015-03-15'),
-(3, 'Première edition des Fleurs du Mal', 'edition originale de 1857', '1857-06-25'),
-(1, 'L''etranger', 'Roman d''Albert Camus', '1942-05-19'),
-(1, 'Harry Potter à l''ecole des sorciers', 'Premier tome de la saga Harry Potter', '1997-06-26'),
-(2, 'Algorithmes avances', 'Livre reserve aux chercheurs en informatique', '2018-11-02'),
-(1, 'Le Seigneur des Anneaux', 'Trilogie fantastique', '1954-07-29'),
-(3, 'Bible de Gutenberg', 'Reproduction fidèle de l''original', '1455-01-01'),
-(1, 'Voyage au centre de la Terre', 'Roman de Jules Verne', '1864-11-25');
-
--- Insertion des relations livre-categorie
-INSERT INTO categorie_livre (id_livre, id_categorie) VALUES
-(1, 1), (1, 3), -- Le Petit Prince (Litterature, Jeunesse)
-(2, 1), (2, 5), -- 1984 (Litterature, Histoire-Geographie)
-(3, 2), (3, 7), -- Manuel de Physique Quantique (Sciences, Informatique)
-(4, 1), (4, 4), -- Fleurs du Mal (Litterature, Arts)
-(5, 1), -- L'etranger (Litterature)
-(6, 1), (6, 3), -- Harry Potter (Litterature, Jeunesse)
-(7, 2), (7, 7), -- Algorithmes avances (Sciences, Informatique)
-(8, 1), -- Seigneur des Anneaux (Litterature)
-(9, 1), (9, 5), -- Bible de Gutenberg (Litterature, Histoire-Geographie)
-(10, 1), (10, 2); -- Voyage au centre de la Terre (Litterature, Sciences)
-
--- Insertion d'exemplaires
-INSERT INTO Exemplaire (Id_Livre) VALUES 
-(1), (1), (1), -- 3 exemplaires du Petit Prince
-(2), (2), -- 2 exemplaires de 1984
-(3), -- 1 exemplaire du Manuel de Physique Quantique
-(4), -- 1 exemplaire des Fleurs du Mal (rare)
-(5), (5), (5), (5), -- 4 exemplaires de L'etranger
-(6), (6), (6), (6), (6), -- 5 exemplaires de Harry Potter
-(7), (7), -- 2 exemplaires d'Algorithmes avances
-(8), (8), (8), -- 3 exemplaires du Seigneur des Anneaux
-(9), -- 1 exemplaire de la Bible de Gutenberg (rare)
-(10), (10); -- 2 exemplaires de Voyage au centre de la Terre
-
-
 
 CREATE OR REPLACE VIEW vue_livres_disponibles AS
 SELECT 
@@ -371,3 +303,93 @@ JOIN
 WHERE 
     s.statut = 'non traite'
     AND pr.Date_retour_prevue>=CURRENT_DATE;
+
+
+INSERT INTO Type_Adherent (Nom_type) VALUES 
+('Etudiant'),
+('Enseignant'),
+('Professeur');
+
+INSERT INTO Utilisateur (Id_type_adherent, Nom, Prenom, password, Date_naissance) VALUES 
+(1, 'Bensaid', 'Amine', 'password123', NULL),
+(1, 'El Khattabi', 'Sarah', 'password123', NULL),
+(1, 'Moujahid', 'Youssef', 'password123', NULL),
+(2, 'Benali', 'Nadia', 'password123', NULL),
+(2, 'Haddadi', 'Karim', 'password123', NULL),
+(2, 'Touhami', 'Salima', 'password123', NULL),
+(3, 'El Mansouri', 'Rachid', 'password123', NULL),
+(3, 'Zerouali', 'Amina', 'password123', NULL);
+
+INSERT INTO Configuration_Pret (Id_type_adherent, Nombre_livre_quota, Nombre_prolongement_quota, Nombre_reservation_quota, Duree_pret, duree_prolongement, duree_reservation) VALUES 
+(1, 2, 3, 1, 7, 7, 5),
+(2, 3, 5, 2, 9, 9, 5),
+(3, 4, 7, 3, 12, 12, 5);
+
+INSERT INTO jour_ferie (date_ferie) VALUES 
+-- Regular holidays from Excel
+('2025-07-19'),
+('2025-07-26'),
+
+-- Sundays from Excel (Dimanche)
+('2025-07-13'),  -- Already included as a holiday
+('2025-07-20'),  -- Already included as a holiday
+('2025-07-27'),
+('2025-08-03'),
+('2025-08-10'),
+('2025-08-17');
+
+INSERT INTO Type_Livre (Nom_type) VALUES 
+('Littérature classique'),
+('Philosophie'),
+('Jeunesse/Fantastique');
+
+INSERT INTO Categorie (Nom_categorie) VALUES 
+('Littérature classique'),
+('Philosophie'),
+('Jeunesse'),
+('Fantastique');
+
+INSERT INTO Livre (Id_type_livre, Nom, Description, Date_edition) VALUES 
+(1, 'Les Miserables', 'Roman classique de Victor Hugo', NULL),
+(2, 'Etranger', 'Roman philosophique Albert Camus', NULL),
+(3, 'Harry Potter ecole des sorciers', 'Premier tome de la serie Harry Potter', NULL);
+
+INSERT INTO categorie_livre (id_livre, id_categorie) VALUES 
+(1, 1),
+(2, 2),
+(3, 3),
+(3, 4);
+
+INSERT INTO Exemplaire (Id_Livre, Date_ajout) VALUES 
+(1, CURRENT_DATE),
+(1, CURRENT_DATE),
+(1, CURRENT_DATE),
+(2, CURRENT_DATE),
+(2, CURRENT_DATE),
+(3, CURRENT_DATE);
+
+INSERT INTO abonnement (Id_utilisateur, date_debut, date_fin) VALUES 
+(1, '2025-02-01', '2025-07-24'),
+(2, '2025-02-01', '2025-07-01'),
+(3, '2025-04-01', '2025-12-01'),
+(4, '2025-07-01', '2026-07-01'),
+(5, '2025-08-01', '2026-05-01'),
+(6, '2025-07-01', '2026-06-01'),
+(7, '2025-06-01', '2025-12-01'),
+(8, '2024-10-01', '2025-06-01');
+
+INSERT INTO Sanction_Type_Adherent (Id_type_adherent, Duree_sanction, Description_sanction) VALUES 
+(1, 10, 'Sanction pour étudiant'),
+(2, 9, 'Sanction pour enseignant'),
+(3, 8, 'Sanction pour professionnel');
+
+INSERT INTO Type_Livre_Autorise (Id_type_adherent, Id_type_livre) VALUES 
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 1),
+(2, 2),
+(2, 3),
+(3, 1),
+(3, 2),
+(3, 3);

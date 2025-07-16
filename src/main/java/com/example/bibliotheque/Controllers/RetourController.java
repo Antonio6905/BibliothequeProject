@@ -2,6 +2,7 @@ package com.example.bibliotheque.Controllers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,8 +49,16 @@ public class RetourController {
                 Sanction sanction = new Sanction();
                 sanction.setMotif("Retard sur retour de livre");
                 sanction.setDateDebutSanction(dateRetour);
-                LocalDate finSanction = dateRetour.plusDays(sanctionTypeAdherentService.findByTypeAdherentId(user.getTypeAdherent().getId()).getDureeSanction());
-                sanction.setDateFinSanction(finSanction);
+                List<Sanction> allSanctions = sanctionService.findByUser(user.getId());
+                if(allSanctions!=null && !allSanctions.isEmpty()){
+                    Sanction sanction0 = allSanctions.get(0);
+                    sanction.setDateDebutSanction(sanction0.getDateDebutSanction());
+                    sanction.setDateFinSanction(sanction0.getDateFinSanction().plusDays(sanctionTypeAdherentService.findByTypeAdherentId(user.getTypeAdherent().getId()).getDureeSanction()));
+                }
+                else{
+                    sanction.setDateFinSanction(dateRetour.plusDays(sanctionTypeAdherentService.findByTypeAdherentId(user.getTypeAdherent().getId()).getDureeSanction()));
+                }
+                
                 sanction.setPret(pret);
                 sanction.setUtilisateur(user);
                 sanctionService.save(sanction);

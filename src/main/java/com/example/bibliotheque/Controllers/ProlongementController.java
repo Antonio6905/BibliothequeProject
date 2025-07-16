@@ -44,19 +44,22 @@ public class ProlongementController {
 
         // Récupérer le prêt
         try {
+            Utilisateur user = (Utilisateur)session.getAttribute("utilisateur");
             Pret pret = pretService.findById(pretId);
             if (pret == null) {
                 throw new Exception("Prêt non trouvé");
             }
-
+            ConfigurationPret config = configPretService.findByTypeAdherent(pret.getUtilisateur().getTypeAdherent().getId());
+            Integer quota = prolongementService.countCurrentByUser(user.getId());
+            if(quota>=config.getNombreProlongementQuota()){
+                throw new Exception("Vous avez deja atteint votre quota maximal pour les prolongements!");
+            }
             // Vérifier si le prêt est déjà prolongé
             if (pret.getProlongement() != null) {
                 throw new Exception("Ce pret a deja ete prolonge");
             }
-
+            
             // Calculer les nouvelles dates
-            ConfigurationPret config = configPretService.findByTypeAdherent(
-                    pret.getUtilisateur().getTypeAdherent().getId());
 
             LocalDate dateDebut = LocalDate.now();
             LocalDate dateFin = dateDebut.plusDays(config.getDureeProlongement());

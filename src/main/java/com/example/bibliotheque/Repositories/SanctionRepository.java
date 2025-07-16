@@ -16,6 +16,9 @@ public interface SanctionRepository extends JpaRepository<Sanction, Integer> {
     @Query("SELECT s FROM Sanction s WHERE :date BETWEEN s.dateDebutSanction AND s.dateFinSanction")
     List<Sanction> findSanctionsActives(LocalDate date);
 
+    @Query("SELECT s FROM Sanction s WHERE s.utilisateur.id=:id AND CURRENT_DATE BETWEEN s.dateDebutSanction AND s.dateFinSanction ORDER BY s.dateFinSanction DESC")
+    List<Sanction> findSanctionsActivesByUserNow(Integer id);
+
     @Query("SELECT s FROM Sanction s WHERE s.dateFinSanction > CURRENT_DATE")
     List<Sanction> findSanctionsNonExpirees();
 }

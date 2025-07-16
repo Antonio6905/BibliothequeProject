@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.bibliotheque.Models.ConfigurationPret;
 import com.example.bibliotheque.Models.Exemplaire;
+import com.example.bibliotheque.Models.JourFerie;
 import com.example.bibliotheque.Models.Pret;
 import com.example.bibliotheque.Models.Utilisateur;
 import com.example.bibliotheque.Services.AbonnementService;
 import com.example.bibliotheque.Services.ConfigurationPretService;
 import com.example.bibliotheque.Services.ExemplaireService;
+import com.example.bibliotheque.Services.JourFerieService;
 import com.example.bibliotheque.Services.LivreService;
 import com.example.bibliotheque.Services.PretService;
 import com.example.bibliotheque.Services.TypeAdherentService;
@@ -48,6 +50,9 @@ public class PretController {
 
     @Autowired
     private AbonnementService abonnementService;
+
+    @Autowired
+    private JourFerieService jourFerieService;
 
     @GetMapping("/pret")
     public String showPret(Model model,HttpSession session) {
@@ -92,13 +97,18 @@ public class PretController {
                 newPret.setUtilisateur(user);
                 newPret.setExemplaire(exemplaire);
                 newPret.setDatePret(LocalDateTime.of(date,LocalTime.now()));
-                newPret.setDateRetourPrevue(LocalDate.now().plusDays(config.getDureePret()));
-
+                if(jourFerieService.isFerie(date.plusDays(config.getDureePret()))){
+                    newPret.setDateRetourPrevue(date.plusDays(config.getDureePret()+1));
+                }
+                else{
+                    newPret.setDateRetourPrevue(date.plusDays(config.getDureePret()));
+                }
                 pretService.save(newPret);
                 return "redirect:/pret/form";
             }
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
+            model.addAttribute("listLivres", livreService.findAll());
             return "admin/formPret";
         }
     }

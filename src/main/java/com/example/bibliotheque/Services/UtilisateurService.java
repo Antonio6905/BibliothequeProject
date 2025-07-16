@@ -16,9 +16,10 @@ public class UtilisateurService {
     private BCryptPasswordEncoder passwordEncoder;
 
     public Utilisateur authentifier(String nom, String password) {
-        return utilisateurRepository.findByNom(nom)
-                .filter(u -> passwordEncoder.matches(password, u.getPassword()))
-                .orElse(null);
+        // return utilisateurRepository.findByNom(nom)
+        //         .filter(u -> passwordEncoder.matches(password, u.getPassword()))
+        //         .orElse(null);
+        return utilisateurRepository.findByNomAndPassword(nom, password).get();
     }
 
     public boolean existsByNom(String nom) {

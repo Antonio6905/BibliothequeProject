@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.example.bibliotheque.BibliothequeApplicationTests" time="8.182" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.example.bibliotheque.BibliothequeApplicationTests" time="10.208" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -18,7 +18,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\Antonio\AppData\Local\Temp\surefire6386254910333077237\surefirebooter-20250704002142555_3.jar C:\Users\Antonio\AppData\Local\Temp\surefire6386254910333077237 2025-07-04T00-21-42_390-jvmRun1 surefire-20250704002142555_1tmp surefire_0-20250704002142555_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Antonio\AppData\Local\Temp\surefire12549045170459731587\surefirebooter-20250716093249236_3.jar C:\Users\Antonio\AppData\Local\Temp\surefire12549045170459731587 2025-07-16T09-32-49_025-jvmRun1 surefire-20250716093249236_1tmp surefire_0-20250716093249236_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\target\test-classes;C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\target\classes;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.4.1\spring-boot-starter-web-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.1\spring-boot-starter-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot\3.4.1\spring-boot-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.1\spring-boot-autoconfigure-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.1\spring-boot-starter-logging-3.4.1.jar;C:\Users\Antonio\.m2\repository\ch\qos\logback\logback-classic\1.5.12\logback-classic-1.5.12.jar;C:\Users\Antonio\.m2\repository\ch\qos\logback\logback-core\1.5.12\logback-core-1.5.12.jar;C:\Users\Antonio\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\Antonio\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\Antonio\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\Antonio\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\Antonio\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.4.1\spring-boot-starter-json-3.4.1.jar;C:\Users\Antonio\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.18.2\jackson-databind-2.18.2.jar;C:\Users\Antonio\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.2\jackson-annotations-2.18.2.jar;C:\Users\Antonio\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.18.2\jackson-core-2.18.2.jar;C:\Users\Antonio\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.18.2\jackson-datatype-jdk8-2.18.2.jar;C:\Users\Antonio\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.18.2\jackson-datatype-jsr310-2.18.2.jar;C:\Users\Antonio\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.18.2\jackson-module-parameter-names-2.18.2.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.4.1\spring-boot-starter-tomcat-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.34\tomcat-embed-websocket-10.1.34.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-web\6.2.1\spring-web-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-beans\6.2.1\spring-beans-6.2.1.jar;C:\Users\Antonio\.m2\repository\io\micrometer\micrometer-observation\1.14.2\micrometer-observation-1.14.2.jar;C:\Users\Antonio\.m2\repository\io\micrometer\micrometer-commons\1.14.2\micrometer-commons-1.14.2.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-webmvc\6.2.1\spring-webmvc-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-aop\6.2.1\spring-aop-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-context\6.2.1\spring-context-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-expression\6.2.1\spring-expression-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.4.1\spring-boot-starter-data-jpa-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.4.1\spring-boot-starter-jdbc-3.4.1.jar;C:\Users\Antonio\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-jdbc\6.2.1\spring-jdbc-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\hibernate\orm\hibernate-core\6.6.4.Final\hibernate-core-6.6.4.Final.jar;C:\Users\Antonio\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\Antonio\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Antonio\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Antonio\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\Antonio\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\Antonio\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\Antonio\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\Antonio\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\Antonio\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\Antonio\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\Antonio\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\Antonio\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Antonio\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Antonio\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\Antonio\.m2\repository\org\springframework\data\spring-data-jpa\3.4.1\spring-data-jpa-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\data\spring-data-commons\3.4.1\spring-data-commons-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-orm\6.2.1\spring-orm-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-tx\6.2.1\spring-tx-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-aspects\6.2.1\spring-aspects-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar;C:\Users\Antonio\.m2\repository\org\postgresql\postgresql\42.7.4\postgresql-42.7.4.jar;C:\Users\Antonio\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\Antonio\.m2\repository\org\projectlombok\lombok\1.18.36\lombok-1.18.36.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.4.1\spring-boot-starter-test-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-test\3.4.1\spring-boot-test-3.4.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.4.1\spring-boot-test-autoconfigure-3.4.1.jar;C:\Users\Antonio\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\Antonio\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\Antonio\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\Antonio\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\Antonio\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\Antonio\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\Antonio\.m2\repository\org\assertj\assertj-core\3.26.3\assertj-core-3.26.3.jar;C:\Users\Antonio\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\Antonio\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\Antonio\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\Antonio\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\Antonio\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Antonio\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\Antonio\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Antonio\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\Antonio\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\Antonio\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;C:\Users\Antonio\.m2\repository\org\mockito\mockito-core\5.14.2\mockito-core-5.14.2.jar;C:\Users\Antonio\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\Antonio\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Antonio\.m2\repository\org\mockito\mockito-junit-jupiter\5.14.2\mockito-junit-jupiter-5.14.2.jar;C:\Users\Antonio\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\Antonio\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-core\6.2.1\spring-core-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-jcl\6.2.1\spring-jcl-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\spring-test\6.2.1\spring-test-6.2.1.jar;C:\Users\Antonio\.m2\repository\org\xmlunit\xmlunit-core\2.10.0\xmlunit-core-2.10.0.jar;C:\Users\Antonio\.m2\repository\org\apache\tomcat\embed\tomcat-embed-jasper\10.1.34\tomcat-embed-jasper-10.1.34.jar;C:\Users\Antonio\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.34\tomcat-embed-core-10.1.34.jar;C:\Users\Antonio\.m2\repository\org\apache\tomcat\tomcat-annotations-api\10.1.34\tomcat-annotations-api-10.1.34.jar;C:\Users\Antonio\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.34\tomcat-embed-el-10.1.34.jar;C:\Users\Antonio\.m2\repository\org\eclipse\jdt\ecj\3.33.0\ecj-3.33.0.jar;C:\Users\Antonio\.m2\repository\jakarta\servlet\jsp\jstl\jakarta.servlet.jsp.jstl-api\3.0.0\jakarta.servlet.jsp.jstl-api-3.0.0.jar;C:\Users\Antonio\.m2\repository\jakarta\servlet\jakarta.servlet-api\6.0.0\jakarta.servlet-api-6.0.0.jar;C:\Users\Antonio\.m2\repository\jakarta\el\jakarta.el-api\5.0.0\jakarta.el-api-5.0.0.jar;C:\Users\Antonio\.m2\repository\org\glassfish\web\jakarta.servlet.jsp.jstl\3.0.1\jakarta.servlet.jsp.jstl-3.0.1.jar;C:\Users\Antonio\.m2\repository\org\springframework\security\spring-security-crypto\6.4.2\spring-security-crypto-6.4.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -35,7 +35,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\Antonio\AppData\Local\Temp\surefire6386254910333077237\surefirebooter-20250704002142555_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Antonio\AppData\Local\Temp\surefire12549045170459731587\surefirebooter-20250716093249236_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.1+12-LTS-29"/>
@@ -54,11 +54,11 @@
     <property name="user.dir" value="C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="1212"/>
+    <property name="PID" value="379516"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\oraclexe\app\oracle\product\11.2.0\server\bin;F:\app\Antonio\product\11.2.0\dbhome_1\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet\;C:\composer;C:\Program Files\Git\cmd;C:\Program Files\nodejs\node_modules\npm;C:\xampp\php;C:\MinGW\bin;C:\Program Files\PostgreSQL\15\bin;C:\Program Files\Java\jdk-21\bin;C:\ProgramData\chocolatey\bin;C:\xampp\mysql\bin;C:\Program Files\nodejs\;C:\Program Files\CMake\bin;C:\Program Files\PostgreSQL\15\lib;C:\Users\Antonio\AppData\Local\Programs\Python\Launcher;C:\Users\Antonio\AppData\Local\Programs\Python\313\Scripts\;C:\Users\Antonio\AppData\Local\Programs\Python\313;C:\Maven\apache-maven-3.8.8\bin;C:\Program Files\QGIS 3.34.15\bin\gdal310.dll;C:\Users\Antonio\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Antonio\AppData\Local\Programs\Python\Python313\;C:\Users\Antonio\AppData\Local\Programs\Python\Launcher;C:\Users\Antonio\AppData\Local\Microsoft\WindowsApps;C:\Users\Antonio\AppData\Roaming\Composer\vendor\bin;D:\xampp\bin;D:\Software\Windsurf\bin;D:\Software\IntelliJ IDEA Community Edition 2024.3\bin;;C:\Users\Antonio\AppData\Local\GitHubDesktop\bin;C:\Users\Antonio\.dotnet\tools;D:\Software\PyCharmPro\PyCharm 2024.2.2\bin;;C:\Users\Antonio\AppData\Roaming\npm;C:\Program Files\JetBrains\CLion 2024.2.2\bin;;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\oraclexe\app\oracle\product\11.2.0\server\bin;F:\app\Antonio\product\11.2.0\dbhome_1\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet\;C:\composer;C:\Program Files\Git\cmd;C:\Program Files\nodejs\node_modules\npm;C:\xampp\php;C:\MinGW\bin;C:\Program Files\PostgreSQL\15\bin;C:\Program Files\Java\jdk-21\bin;C:\ProgramData\chocolatey\bin;C:\xampp\mysql\bin;C:\Program Files\nodejs\;C:\Program Files\PostgreSQL\15\lib;C:\Users\Antonio\AppData\Local\Programs\Python\Launcher;C:\Users\Antonio\AppData\Local\Programs\Python\313\Scripts\;C:\Users\Antonio\AppData\Local\Programs\Python\313;C:\Maven\apache-maven-3.8.8\bin;C:\Program Files\QGIS 3.34.15\bin\gdal310.dll;C:\Users\Antonio\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Antonio\AppData\Local\Programs\Python\Python313\;C:\Users\Antonio\AppData\Local\Programs\Python\Launcher;C:\Users\Antonio\AppData\Local\Microsoft\WindowsApps;C:\Users\Antonio\AppData\Roaming\Composer\vendor\bin;D:\xampp\bin;D:\Software\Windsurf\bin;D:\Software\IntelliJ IDEA Community Edition 2024.3\bin;;C:\Users\Antonio\AppData\Local\GitHubDesktop\bin;C:\Users\Antonio\.dotnet\tools;D:\Software\PyCharmPro\PyCharm 2024.2.2\bin;;C:\Users\Antonio\AppData\Roaming\npm;C:\Program Files\JetBrains\CLion 2024.2.2\bin;;;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
@@ -67,9 +67,9 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[bibliotheque] "/>
   </properties>
-  <testcase name="contextLoads" classname="com.example.bibliotheque.BibliothequeApplicationTests" time="0.514">
-    <system-out><![CDATA[00:21:43.471 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.bibliotheque.BibliothequeApplicationTests]: BibliothequeApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-00:21:43.668 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.bibliotheque.PecheApplication for test class com.example.bibliotheque.BibliothequeApplicationTests
+  <testcase name="contextLoads" classname="com.example.bibliotheque.BibliothequeApplicationTests" time="0.687">
+    <system-out><![CDATA[09:32:50.362 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.bibliotheque.BibliothequeApplicationTests]: BibliothequeApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:32:50.514 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.bibliotheque.PecheApplication for test class com.example.bibliotheque.BibliothequeApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -80,19 +80,19 @@
 
  :: Spring Boot ::                (v3.4.1)
 
-2025-07-04T00:21:44.215+03:00  INFO 1212 --- [bibliotheque] [           main] c.e.b.BibliothequeApplicationTests       : Starting BibliothequeApplicationTests using Java 21.0.1 with PID 1212 (started by Antonio in C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject)
-2025-07-04T00:21:44.217+03:00  INFO 1212 --- [bibliotheque] [           main] c.e.b.BibliothequeApplicationTests       : No active profile set, falling back to 1 default profile: "default"
-2025-07-04T00:21:45.170+03:00  INFO 1212 --- [bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-04T00:21:45.379+03:00  INFO 1212 --- [bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 180 ms. Found 16 JPA repository interfaces.
-2025-07-04T00:21:46.087+03:00  INFO 1212 --- [bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-04T00:21:46.255+03:00  INFO 1212 --- [bibliotheque] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
-2025-07-04T00:21:46.317+03:00  INFO 1212 --- [bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-07-04T00:21:46.731+03:00  INFO 1212 --- [bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-07-04T00:21:46.778+03:00  INFO 1212 --- [bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-04T00:21:46.925+03:00  INFO 1212 --- [bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@21c75084
-2025-07-04T00:21:46.928+03:00  INFO 1212 --- [bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-07-04T00:21:46.974+03:00  WARN 1212 --- [bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-07-04T00:21:47.010+03:00  INFO 1212 --- [bibliotheque] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-07-16T09:32:51.180+03:00  INFO 379516 --- [bibliotheque] [           main] c.e.b.BibliothequeApplicationTests       : Starting BibliothequeApplicationTests using Java 21.0.1 with PID 379516 (started by Antonio in C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject)
+2025-07-16T09:32:51.181+03:00  INFO 379516 --- [bibliotheque] [           main] c.e.b.BibliothequeApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+2025-07-16T09:32:52.377+03:00  INFO 379516 --- [bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-16T09:32:52.547+03:00  INFO 379516 --- [bibliotheque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 155 ms. Found 18 JPA repository interfaces.
+2025-07-16T09:32:53.459+03:00  INFO 379516 --- [bibliotheque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-16T09:32:53.616+03:00  INFO 379516 --- [bibliotheque] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-07-16T09:32:53.681+03:00  INFO 379516 --- [bibliotheque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-16T09:32:54.216+03:00  INFO 379516 --- [bibliotheque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-16T09:32:54.269+03:00  INFO 379516 --- [bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-16T09:32:54.449+03:00  INFO 379516 --- [bibliotheque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4cfcac13
+2025-07-16T09:32:54.450+03:00  INFO 379516 --- [bibliotheque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-16T09:32:54.518+03:00  WARN 379516 --- [bibliotheque] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-16T09:32:54.549+03:00  INFO 379516 --- [bibliotheque] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 15.8
@@ -100,11 +100,94 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-07-04T00:21:48.259+03:00  INFO 1212 --- [bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-07-04T00:21:48.533+03:00  INFO 1212 --- [bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-04T00:21:49.074+03:00  INFO 1212 --- [bibliotheque] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-07-04T00:21:50.363+03:00  WARN 1212 --- [bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-07-04T00:21:50.895+03:00  INFO 1212 --- [bibliotheque] [           main] c.e.b.BibliothequeApplicationTests       : Started BibliothequeApplicationTests in 7.037 seconds (process running for 8.224)
+2025-07-16T09:32:56.147+03:00  INFO 379516 --- [bibliotheque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: set client_min_messages = WARNING
+Hibernate: drop table if exists public.vue_livres_disponibles cascade
+Hibernate: drop table if exists public.vue_sanctions_en_cours cascade
+Hibernate: alter table if exists abonnement drop constraint if exists FK8lwvvbebct889bbbn5q8asmq
+Hibernate: alter table if exists categorie_livre drop constraint if exists FKoa36vn9e2wkwfbb0wmygsvlwh
+Hibernate: alter table if exists categorie_livre drop constraint if exists FK5vvwypn67pav3uo7vqvlsfbay
+Hibernate: alter table if exists configuration_pret drop constraint if exists FKq4keawe5hdsyafnayvc1iah92
+Hibernate: alter table if exists exemplaire drop constraint if exists FKjrlylp63ofe9qwf6k2t0m09xh
+Hibernate: alter table if exists livre drop constraint if exists FK4i428yliw1ckaq6mm3yovfplr
+Hibernate: alter table if exists pret drop constraint if exists FKn7tvrkjvh9cs2k6kj3p1bp7ph
+Hibernate: alter table if exists pret drop constraint if exists FKi0wyf3vupxx8756np7p7su44n
+Hibernate: alter table if exists prolongement drop constraint if exists FKh2n7a6awelvqauf7ro1f9wa6q
+Hibernate: alter table if exists reservation drop constraint if exists FKmimnronyvs0e4uwwb7tjp3xxj
+Hibernate: alter table if exists reservation drop constraint if exists FK3kt9mawec4sqdm8j6830e8yp9
+Hibernate: alter table if exists retour drop constraint if exists FKvlenly85wyor01tnvuvbg1w2
+Hibernate: alter table if exists sanction drop constraint if exists FK56byw7ge0lbns8e5f1ddag508
+Hibernate: alter table if exists sanction drop constraint if exists FKbvh3t4ksga8ec7bpt5sgv40vw
+Hibernate: alter table if exists sanction_type_adherent drop constraint if exists FK5wl55wdeg4i47f1aanqe1i97l
+Hibernate: alter table if exists suivi_statut_prolongement drop constraint if exists FK371rce0sqqi6kwd2a4821cy7c
+Hibernate: alter table if exists suivi_statut_reservation drop constraint if exists FKbkf3vr7b67gtlaqgcghoeb8o
+Hibernate: alter table if exists type_livre_autorise drop constraint if exists FKoa8bnv1k36xrrx8jkpi2nhfx7
+Hibernate: alter table if exists type_livre_autorise drop constraint if exists FKarlscpl0byqyhlismy5uc7pv9
+Hibernate: alter table if exists utilisateur drop constraint if exists FK984na0c5hlkansnagys7w79sr
+Hibernate: drop table if exists abonnement cascade
+Hibernate: drop table if exists categorie cascade
+Hibernate: drop table if exists categorie_livre cascade
+Hibernate: drop table if exists configuration_pret cascade
+Hibernate: drop table if exists exemplaire cascade
+Hibernate: drop table if exists jour_ferie cascade
+Hibernate: drop table if exists livre cascade
+Hibernate: drop table if exists pret cascade
+Hibernate: drop table if exists prolongement cascade
+Hibernate: drop table if exists reservation cascade
+Hibernate: drop table if exists retour cascade
+Hibernate: drop table if exists sanction cascade
+Hibernate: drop table if exists sanction_type_adherent cascade
+Hibernate: drop table if exists suivi_statut_prolongement cascade
+Hibernate: drop table if exists suivi_statut_reservation cascade
+Hibernate: drop table if exists type_adherent cascade
+Hibernate: drop table if exists type_livre cascade
+Hibernate: drop table if exists type_livre_autorise cascade
+Hibernate: drop table if exists utilisateur cascade
+Hibernate: create table public.vue_livres_disponibles (date_ajout date, exemplaire_id integer, livre_id integer not null, titre varchar(255) not null, type_livre varchar(255) not null, primary key (livre_id))
+Hibernate: create table public.vue_sanctions_en_cours (date_debut_sanction date not null, date_fin_sanction date not null, sanction_id integer not null, user_id integer, date_pret timestamp(6), etat_sanction varchar(255) not null, motif varchar(255), nom_sanctionne varchar(255), prenom_sanctionne varchar(255), titre_livre varchar(255), type_adherent varchar(255), primary key (sanction_id))
+Hibernate: create table abonnement (date_debut DATE DEFAULT CURRENT_DATE, date_fin date not null, id integer generated by default as identity, id_utilisateur integer not null, primary key (id))
+Hibernate: create table categorie (id integer generated by default as identity, nom_categorie varchar(50) not null, primary key (id))
+Hibernate: create table categorie_livre (id_categorie integer not null, id_livre integer not null)
+Hibernate: create table configuration_pret (duree_pret integer not null, duree_prolongement integer not null, duree_reservation integer not null, id integer generated by default as identity, id_type_adherent integer not null, nombre_livre_quota integer not null, nombre_prolongement_quota integer not null, nombre_reservation_quota integer not null, primary key (id))
+Hibernate: create table exemplaire (date_ajout DATE DEFAULT CURRENT_DATE, id integer generated by default as identity, id_livre integer not null, primary key (id))
+Hibernate: create table jour_ferie (date_ferie date not null, id integer generated by default as identity, primary key (id))
+Hibernate: create table livre (date_edition date, id integer generated by default as identity, id_type_livre integer not null, nom varchar(100) not null, description TEXT, primary key (id))
+Hibernate: create table pret (date_retour_prevue date not null, id integer generated by default as identity, id_exemplaire integer not null, id_utilisateur integer not null, date_pret TIMESTAMP DEFAULT CURRENT_TIMESTAMP, primary key (id))
+Hibernate: create table prolongement (date_debut_prolongement date not null, date_fin_prolongement date not null, id integer generated by default as identity, id_pret_livre integer not null unique, primary key (id))
+Hibernate: create table reservation (date_demande DATE DEFAULT CURRENT_DATE, date_expiration date, id integer generated by default as identity, id_exemplaire integer not null, id_utilisateur integer not null, primary key (id))
+Hibernate: create table retour (id integer generated by default as identity, id_pret_livre integer not null unique, date_remise_effective TIMESTAMP DEFAULT CURRENT_TIMESTAMP, primary key (id))
+Hibernate: create table sanction (date_debut_sanction date not null, date_fin_sanction date not null, id integer generated by default as identity, id_pret_livre integer, id_utilisateur integer not null, motif varchar(100), primary key (id))
+Hibernate: create table sanction_type_adherent (duree_sanction integer not null, id integer generated by default as identity, id_type_adherent integer not null, description_sanction TEXT, primary key (id))
+Hibernate: create table suivi_statut_prolongement (id integer generated by default as identity, id_prolongement integer not null, date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP, statut varchar(255), primary key (id))
+Hibernate: create table suivi_statut_reservation (id integer generated by default as identity, id_reservation integer not null, date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP, statut varchar(255) not null, primary key (id))
+Hibernate: create table type_adherent (id integer generated by default as identity, nom_type varchar(50) not null, primary key (id))
+Hibernate: create table type_livre (id integer generated by default as identity, nom_type varchar(50) not null, primary key (id))
+Hibernate: create table type_livre_autorise (id integer generated by default as identity, id_type_adherent integer not null, id_type_livre integer not null, primary key (id))
+Hibernate: create table utilisateur (date_naissance date, id integer generated by default as identity, id_type_adherent integer not null, nom varchar(50) not null, prenom varchar(50) not null, password varchar(255) not null, primary key (id))
+Hibernate: alter table if exists abonnement add constraint FK8lwvvbebct889bbbn5q8asmq foreign key (id_utilisateur) references utilisateur
+Hibernate: alter table if exists categorie_livre add constraint FKoa36vn9e2wkwfbb0wmygsvlwh foreign key (id_categorie) references categorie
+Hibernate: alter table if exists categorie_livre add constraint FK5vvwypn67pav3uo7vqvlsfbay foreign key (id_livre) references livre
+Hibernate: alter table if exists configuration_pret add constraint FKq4keawe5hdsyafnayvc1iah92 foreign key (id_type_adherent) references type_adherent
+Hibernate: alter table if exists exemplaire add constraint FKjrlylp63ofe9qwf6k2t0m09xh foreign key (id_livre) references livre
+Hibernate: alter table if exists livre add constraint FK4i428yliw1ckaq6mm3yovfplr foreign key (id_type_livre) references type_livre
+Hibernate: alter table if exists pret add constraint FKn7tvrkjvh9cs2k6kj3p1bp7ph foreign key (id_exemplaire) references exemplaire
+Hibernate: alter table if exists pret add constraint FKi0wyf3vupxx8756np7p7su44n foreign key (id_utilisateur) references utilisateur
+Hibernate: alter table if exists prolongement add constraint FKh2n7a6awelvqauf7ro1f9wa6q foreign key (id_pret_livre) references pret
+Hibernate: alter table if exists reservation add constraint FKmimnronyvs0e4uwwb7tjp3xxj foreign key (id_exemplaire) references exemplaire
+Hibernate: alter table if exists reservation add constraint FK3kt9mawec4sqdm8j6830e8yp9 foreign key (id_utilisateur) references utilisateur
+Hibernate: alter table if exists retour add constraint FKvlenly85wyor01tnvuvbg1w2 foreign key (id_pret_livre) references pret
+Hibernate: alter table if exists sanction add constraint FK56byw7ge0lbns8e5f1ddag508 foreign key (id_pret_livre) references pret
+Hibernate: alter table if exists sanction add constraint FKbvh3t4ksga8ec7bpt5sgv40vw foreign key (id_utilisateur) references utilisateur
+Hibernate: alter table if exists sanction_type_adherent add constraint FK5wl55wdeg4i47f1aanqe1i97l foreign key (id_type_adherent) references type_adherent
+Hibernate: alter table if exists suivi_statut_prolongement add constraint FK371rce0sqqi6kwd2a4821cy7c foreign key (id_prolongement) references prolongement
+Hibernate: alter table if exists suivi_statut_reservation add constraint FKbkf3vr7b67gtlaqgcghoeb8o foreign key (id_reservation) references reservation
+Hibernate: alter table if exists type_livre_autorise add constraint FKoa8bnv1k36xrrx8jkpi2nhfx7 foreign key (id_type_adherent) references type_adherent
+Hibernate: alter table if exists type_livre_autorise add constraint FKarlscpl0byqyhlismy5uc7pv9 foreign key (id_type_livre) references type_livre
+Hibernate: alter table if exists utilisateur add constraint FK984na0c5hlkansnagys7w79sr foreign key (id_type_adherent) references type_adherent
+2025-07-16T09:32:56.412+03:00  INFO 379516 --- [bibliotheque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-16T09:32:57.089+03:00  INFO 379516 --- [bibliotheque] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-16T09:32:58.962+03:00  WARN 379516 --- [bibliotheque] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-16T09:32:59.575+03:00  INFO 379516 --- [bibliotheque] [           main] c.e.b.BibliothequeApplicationTests       : Started BibliothequeApplicationTests in 8.808 seconds (process running for 10.174)
 ]]></system-out>
     <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
 WARNING: A Java agent has been loaded dynamically (C:\Users\Antonio\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar)

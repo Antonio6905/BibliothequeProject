@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,27 +67,27 @@
             });
     });
 
-        // Fonction d'affichage commune
-        function afficherDetailsAdherent(data) {
-            console.log("Affichage des données:", data);
-            
-            if (!data) {
-                document.getElementById('debugInfo').textContent = "Aucune donnée reçue";
-                document.getElementById('livreDetails').style.display = 'block';
-                return;
-            }
-
-            let html = '<p><strong>Nom:</strong> <span >' + data.nom + '</span></p>' +
-                        '<p><strong>Prenom:</strong> <span >' + data.prenom + '</span></p>' +
-                        '<p><strong>Date de naissance:</strong> <span >' + data.dtn + '</span></p>' +
-                        '<p><strong>Quota:</strong> <span >' + data.quota + '</span></p>' +
-                        '<p><strong>Nb prets en cours:</strong> <span >' + data.nbPret + '</span></p>'+
-                        '<p><strong>Sanctionne:</strong> <span >' + data.isSanctionne + '</span></p>' +
-                        '<p><strong>Abonne:</strong> <span >' + data.isAbonne + '</span></p>';
-
-            document.getElementById('livreContent').innerHTML = html;
+    // Fonction d'affichage commune
+    function afficherDetailsAdherent(data) {
+        console.log("Affichage des données:", data);
+        
+        if (!data) {
+            document.getElementById('debugInfo').textContent = "Aucune donnée reçue";
             document.getElementById('livreDetails').style.display = 'block';
+            return;
         }
+
+        let html = '<p><strong>Nom:</strong> <span >' + data.nom + '</span></p>' +
+                    '<p><strong>Prenom:</strong> <span >' + data.prenom + '</span></p>' +
+                    '<p><strong>Date de naissance:</strong> <span >' + data.dtn + '</span></p>' +
+                    '<p><strong>Quota:</strong> <span >' + data.quota + '</span></p>' +
+                    '<p><strong>Nb prets en cours:</strong> <span >' + data.nbPret + '</span></p>'+
+                    '<p><strong>Sanctionne:</strong> <span >' + data.isSanctionne + '</span></p>' +
+                    '<p><strong>Abonne:</strong> <span >' + data.isAbonne + '</span></p>';
+
+        document.getElementById('livreContent').innerHTML = html;
+        document.getElementById('livreDetails').style.display = 'block';
+    }
 </script>
 </body>
 </html>

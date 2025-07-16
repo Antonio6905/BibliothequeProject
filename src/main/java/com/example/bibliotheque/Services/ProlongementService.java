@@ -29,6 +29,10 @@ public class ProlongementService {
         return prolongementRepository.findNonTraite();
     }
 
+    public Integer countCurrentByUser(Integer userId) {
+        return prolongementRepository.countByUserNonTraite(userId);
+    }
+
     public Prolongement findByPretId(Integer id) {
         return prolongementRepository.findByPretId(id);
     }

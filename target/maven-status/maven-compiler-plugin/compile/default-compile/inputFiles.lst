@@ -15,6 +15,7 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Categorie.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\ConfigurationPret.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Exemplaire.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\JourFerie.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Livre.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\LivreDisponible.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Pret.java
@@ -22,7 +23,6 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Reservation.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Retour.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\Sanction.java
-C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\SanctionEnCours.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\SanctionTypeAdherent.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\SuiviStatutProlongement.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Models\SuiviStatutReservation.java
@@ -35,6 +35,7 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\CategorieRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\ConfigurationPretRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\ExemplaireRepository.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\JourFerieRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\LivreRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\PretRepository.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Repositories\ProlongementRepository.java
@@ -51,6 +52,7 @@ C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\j
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\AbonnementService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\ConfigurationPretService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\ExemplaireService.java
+C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\JourFerieService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\LivreService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\PretService.java
 C:\Users\Antonio\Documents\S4\webdyn\Bibliotheque\BibliothequeProject\src\main\java\com\example\bibliotheque\Services\ProlongementService.java

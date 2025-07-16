@@ -23,6 +23,10 @@ public class SanctionService {
         return sanctionService.findAll();
     }
 
+    public List<Sanction> findByUser(Integer id) {
+        return sanctionService.findSanctionsActivesByUserNow(id);
+    }
+
     /**
      * Récupérer un Sanction par son ID
      * 

@@ -91,6 +91,10 @@ public class ReservationController {
             } else {
                 Exemplaire exemplaire = exemplaireService.findDispoByLivreAndId(livreId,exemplaireId);
                 ConfigurationPret config = configurationPretService.findByTypeAdherent(user.getTypeAdherent().getId());
+                Integer quota = reservationService.countCurrentByUser(user.getId());
+                if (quota >= config.getNombreProlongementQuota()) {
+                    throw new Exception("Vous avez deja atteint votre quota maximal pour les reservations!");
+                }
                 if(!abonnementService.isAbonnementActif(user.getId())){
                     throw new Exception("Vous n'etes plus abonne!");
                 }

@@ -44,6 +44,10 @@ public class ReservationService {
         return reservationRepository.save(Reservation);
     }
 
+    public Integer countCurrentByUser(Integer userId) {
+        return reservationRepository.countByUserNonTraite(userId);
+    }
+
     public void deleteById(Integer id) {
         reservationRepository.deleteById(id);
     }
