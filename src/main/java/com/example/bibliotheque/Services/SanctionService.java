@@ -6,6 +6,7 @@ import com.example.bibliotheque.Repositories.SanctionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -25,6 +26,10 @@ public class SanctionService {
 
     public List<Sanction> findByUser(Integer id) {
         return sanctionService.findSanctionsActivesByUserNow(id);
+    }
+
+    public List<Sanction> findActive(LocalDate date){
+        return sanctionService.findSanctionsActives(date);
     }
 
     /**
